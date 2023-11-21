@@ -1,0 +1,38 @@
+ERROR - 2023-11-13 10:27:39 --> mysqli_sql_exception: MySQL server has gone away in C:\xampp\htdocs\wa-bot\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\xampp\htdocs\wa-bot\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\xampp\htdocs\wa-bot\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\xampp\htdocs\wa-bot\vendor\codeigniter4\framework\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\xampp\htdocs\wa-bot\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\wa-bot\vendor\codeigniter4\framework\system\Model.php(264): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\wa-bot\vendor\codeigniter4\framework\system\BaseModel.php(662): CodeIgniter\Model->doFirst()
+#6 C:\xampp\htdocs\wa-bot\app\Views\ttx.php(8): CodeIgniter\BaseModel->first()
+#7 C:\xampp\htdocs\wa-bot\app\Views\ttx.php(17): locSearch('Neuquen')
+#8 C:\xampp\htdocs\wa-bot\vendor\codeigniter4\framework\system\View\View.php(228): include('C:\\xampp\\htdocs...')
+#9 C:\xampp\htdocs\wa-bot\vendor\codeigniter4\framework\system\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#10 C:\xampp\htdocs\wa-bot\vendor\codeigniter4\framework\system\Common.php(1190): CodeIgniter\View\View->render('ttx', Array, true)
+#11 C:\xampp\htdocs\wa-bot\app\Controllers\Home.php(19): view('ttx')
+#12 C:\xampp\htdocs\wa-bot\vendor\codeigniter4\framework\system\CodeIgniter.php(942): App\Controllers\Home->ttx()
+#13 C:\xampp\htdocs\wa-bot\vendor\codeigniter4\framework\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#14 C:\xampp\htdocs\wa-bot\vendor\codeigniter4\framework\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#15 C:\xampp\htdocs\wa-bot\index.php(79): CodeIgniter\CodeIgniter->run()
+#16 {main}
+CRITICAL - 2023-11-13 10:27:39 --> MySQL server has gone away
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `bravo_locations`
+WHERE `name` LIKE :name: ESCAPE \'!\'
+OR  `id` LIKE :id: ESCAPE \'!\'
+ LIMIT 1', [...], false)
+ 2 SYSTEMPATH\Model.php(264): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(662): CodeIgniter\Model->doFirst()
+ 4 APPPATH\Views\ttx.php(8): CodeIgniter\BaseModel->first()
+ 5 APPPATH\Views\ttx.php(17): locSearch('Neuquen')
+ 6 SYSTEMPATH\View\View.php(228): include('C:\\xampp\\htdocs\\wa-bot\\app\\Views\\ttx.php')
+ 7 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1190): CodeIgniter\View\View->render('ttx', [], true)
+ 9 APPPATH\Controllers\Home.php(19): view('ttx')
+10 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\Home->ttx()
+11 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+12 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()

@@ -1,0 +1,572 @@
+CRITICAL - 2023-11-10 02:16:20 --> Class "Locale" not found
+in SYSTEMPATH\CodeIgniter.php on line 218.
+ 1 FCPATH\index.php(67): CodeIgniter\CodeIgniter->initialize()
+CRITICAL - 2023-11-10 02:16:20 --> Uncaught Error: Class "Locale" not found in C:\xampp\htdocs\wa-bot\vendor\codeigniter4\framework\system\Helpers\number_helper.php:136
+Stack trace:
+#0 C:\xampp\htdocs\wa-bot\vendor\codeigniter4\framework\system\Helpers\number_helper.php(55): format_number(6.0, 2, NULL, Array)
+#1 C:\xampp\htdocs\wa-bot\vendor\codeigniter4\framework\system\Debug\BaseExceptionHandler.php(145): number_to_size(6.0, 2)
+#2 C:\xampp\htdocs\wa-bot\app\Views\errors\html\error_exception.php(361): CodeIgniter\Debug\BaseExceptionHandler::describeMemory(6291456)
+#3 C:\xampp\htdocs\wa-bot\vendor\codeigniter4\framework\system\Debug\BaseExceptionHandler.php(241): include('C:\\xampp\\htdocs...')
+#4 C:\xampp\htdocs\wa-bot\vendor\codeigniter4\framework\system\Debug\BaseExceptionHandler.php(244): CodeIgniter\Debug\BaseExceptionHandler->CodeIgniter\Debug\{closure}()
+#5 C:\xampp\htdocs\wa-bot\vendor\codeigniter4\framework\system\Debug\ExceptionHandler.php(112): CodeIgniter\Debug\BaseExceptionHandler->render(Object(Error), 500, 'C:\\xampp\\htdocs...')
+#6 C:\xampp\htdocs\wa-bot\vendor\codeigniter4\framework\system\Debug\Exceptions.php(148): CodeIgniter\Debug\ExceptionHandler->handle(Object(Error), Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), 500, 1)
+#7 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler(Object(Error))
+#8 {main}
+  thrown
+【Previous Exception】
+Error
+Class "Locale" not found
+#0 C:\xampp\htdocs\wa-bot\index.php(67): CodeIgniter\CodeIgniter->initialize()
+#1 {main}
+in SYSTEMPATH\Helpers\number_helper.php on line 136.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2023-11-10 02:16:20 --> Class "Locale" not found
+in SYSTEMPATH\CodeIgniter.php on line 218.
+ 1 FCPATH\index.php(67): CodeIgniter\CodeIgniter->initialize()
+CRITICAL - 2023-11-10 02:16:20 --> Uncaught Error: Class "Locale" not found in C:\xampp\htdocs\wa-bot\vendor\codeigniter4\framework\system\I18n\TimeTrait.php:74
+Stack trace:
+#0 C:\xampp\htdocs\wa-bot\vendor\codeigniter4\framework\system\I18n\TimeTrait.php(115): CodeIgniter\I18n\Time->__construct(NULL, NULL, NULL)
+#1 C:\xampp\htdocs\wa-bot\vendor\codeigniter4\framework\system\HTTP\ResponseTrait.php(468): CodeIgniter\I18n\Time::now()
+#2 C:\xampp\htdocs\wa-bot\vendor\codeigniter4\framework\system\HTTP\ResponseTrait.php(446): CodeIgniter\HTTP\Response->sendHeaders()
+#3 C:\xampp\htdocs\wa-bot\vendor\codeigniter4\framework\system\Debug\ExceptionHandler.php(81): CodeIgniter\HTTP\Response->send()
+#4 C:\xampp\htdocs\wa-bot\vendor\codeigniter4\framework\system\Debug\Exceptions.php(148): CodeIgniter\Debug\ExceptionHandler->handle(Object(Error), Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), 500, 1)
+#5 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler(Object(Error))
+#6 {main}
+  thrown
+【Previous Exception】
+Error
+Class "Locale" not found
+#0 C:\xampp\htdocs\wa-bot\index.php(67): CodeIgniter\CodeIgniter->initialize()
+#1 {main}
+in SYSTEMPATH\I18n\TimeTrait.php on line 74.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+ERROR - 2023-11-10 01:46:11 --> mysqli_sql_exception: Too big precision 250 specified for 'start_date'. Maximum is 6 in C:\xampp\htdocs\wa-bot\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\xampp\htdocs\wa-bot\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(306): mysqli->query('ALTER TABLE `bo...', 0)
+#1 C:\xampp\htdocs\wa-bot\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('ALTER TABLE `bo...')
+#2 C:\xampp\htdocs\wa-bot\vendor\codeigniter4\framework\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('ALTER TABLE `bo...')
+#3 C:\xampp\htdocs\wa-bot\vendor\codeigniter4\framework\system\Database\Forge.php(745): CodeIgniter\Database\BaseConnection->query('ALTER TABLE `bo...')
+#4 C:\xampp\htdocs\wa-bot\app\Views\database.php(81): CodeIgniter\Database\Forge->addColumn('bot_follow_up', Array)
+#5 C:\xampp\htdocs\wa-bot\vendor\codeigniter4\framework\system\View\View.php(228): include('C:\\xampp\\htdocs...')
+#6 C:\xampp\htdocs\wa-bot\vendor\codeigniter4\framework\system\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#7 C:\xampp\htdocs\wa-bot\vendor\codeigniter4\framework\system\Common.php(1190): CodeIgniter\View\View->render('database', Array, true)
+#8 C:\xampp\htdocs\wa-bot\app\Controllers\Home.php(14): view('database')
+#9 C:\xampp\htdocs\wa-bot\vendor\codeigniter4\framework\system\CodeIgniter.php(942): App\Controllers\Home->database()
+#10 C:\xampp\htdocs\wa-bot\vendor\codeigniter4\framework\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#11 C:\xampp\htdocs\wa-bot\vendor\codeigniter4\framework\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 C:\xampp\htdocs\wa-bot\index.php(79): CodeIgniter\CodeIgniter->run()
+#13 {main}
+CRITICAL - 2023-11-10 01:46:11 --> Too big precision 250 specified for 'start_date'. Maximum is 6
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\Forge.php(745): CodeIgniter\Database\BaseConnection->query('ALTER TABLE `bot_follow_up`
+	ADD `start_date` DATETIME(250)')
+ 2 APPPATH\Views\database.php(81): CodeIgniter\Database\Forge->addColumn('bot_follow_up', [...])
+ 3 SYSTEMPATH\View\View.php(228): include('C:\\xampp\\htdocs\\wa-bot\\app\\Views\\database.php')
+ 4 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 5 SYSTEMPATH\Common.php(1190): CodeIgniter\View\View->render('database', [], true)
+ 6 APPPATH\Controllers\Home.php(14): view('database')
+ 7 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\Home->database()
+ 8 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 9 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-11-10 02:04:50 --> mysqli_sql_exception: Table 'wa_bot.mail' doesn't exist in C:\xampp\htdocs\wa-bot\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\xampp\htdocs\wa-bot\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\xampp\htdocs\wa-bot\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\xampp\htdocs\wa-bot\vendor\codeigniter4\framework\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\xampp\htdocs\wa-bot\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\wa-bot\vendor\codeigniter4\framework\system\Model.php(237): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\wa-bot\vendor\codeigniter4\framework\system\BaseModel.php(624): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\wa-bot\app\Controllers\Bot.php(35): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\wa-bot\vendor\codeigniter4\framework\system\CodeIgniter.php(942): App\Controllers\Bot->botApi()
+#8 C:\xampp\htdocs\wa-bot\vendor\codeigniter4\framework\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Bot))
+#9 C:\xampp\htdocs\wa-bot\vendor\codeigniter4\framework\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\wa-bot\index.php(79): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2023-11-10 02:04:50 --> Table 'wa_bot.mail' doesn't exist
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `mail`
+WHERE `user_id` IS NULL', [], false)
+ 2 SYSTEMPATH\Model.php(237): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(624): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Controllers\Bot.php(35): CodeIgniter\BaseModel->findAll()
+ 5 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\Bot->botApi()
+ 6 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Bot))
+ 7 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-11-10 02:05:55 --> mysqli_sql_exception: Table 'wa_bot.mail' doesn't exist in C:\xampp\htdocs\wa-bot\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\xampp\htdocs\wa-bot\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\xampp\htdocs\wa-bot\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\xampp\htdocs\wa-bot\vendor\codeigniter4\framework\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\xampp\htdocs\wa-bot\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\wa-bot\vendor\codeigniter4\framework\system\Model.php(237): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\wa-bot\vendor\codeigniter4\framework\system\BaseModel.php(624): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\wa-bot\app\Controllers\Bot.php(35): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\wa-bot\vendor\codeigniter4\framework\system\CodeIgniter.php(942): App\Controllers\Bot->botApi()
+#8 C:\xampp\htdocs\wa-bot\vendor\codeigniter4\framework\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Bot))
+#9 C:\xampp\htdocs\wa-bot\vendor\codeigniter4\framework\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\wa-bot\index.php(79): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2023-11-10 02:05:55 --> Table 'wa_bot.mail' doesn't exist
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `mail`
+WHERE `user_id` IS NULL', [], false)
+ 2 SYSTEMPATH\Model.php(237): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(624): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Controllers\Bot.php(35): CodeIgniter\BaseModel->findAll()
+ 5 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\Bot->botApi()
+ 6 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Bot))
+ 7 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-11-10 02:05:56 --> mysqli_sql_exception: Table 'wa_bot.mail' doesn't exist in C:\xampp\htdocs\wa-bot\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\xampp\htdocs\wa-bot\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\xampp\htdocs\wa-bot\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\xampp\htdocs\wa-bot\vendor\codeigniter4\framework\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\xampp\htdocs\wa-bot\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\wa-bot\vendor\codeigniter4\framework\system\Model.php(237): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\wa-bot\vendor\codeigniter4\framework\system\BaseModel.php(624): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\wa-bot\app\Controllers\Bot.php(35): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\wa-bot\vendor\codeigniter4\framework\system\CodeIgniter.php(942): App\Controllers\Bot->botApi()
+#8 C:\xampp\htdocs\wa-bot\vendor\codeigniter4\framework\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Bot))
+#9 C:\xampp\htdocs\wa-bot\vendor\codeigniter4\framework\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\wa-bot\index.php(79): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2023-11-10 02:05:56 --> Table 'wa_bot.mail' doesn't exist
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `mail`
+WHERE `user_id` IS NULL', [], false)
+ 2 SYSTEMPATH\Model.php(237): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(624): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Controllers\Bot.php(35): CodeIgniter\BaseModel->findAll()
+ 5 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\Bot->botApi()
+ 6 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Bot))
+ 7 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-11-10 02:06:15 --> mysqli_sql_exception: Table 'wa_bot.mail' doesn't exist in C:\xampp\htdocs\wa-bot\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\xampp\htdocs\wa-bot\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\xampp\htdocs\wa-bot\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\xampp\htdocs\wa-bot\vendor\codeigniter4\framework\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\xampp\htdocs\wa-bot\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\wa-bot\vendor\codeigniter4\framework\system\Model.php(237): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\wa-bot\vendor\codeigniter4\framework\system\BaseModel.php(624): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\wa-bot\app\Controllers\Bot.php(24): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\wa-bot\vendor\codeigniter4\framework\system\CodeIgniter.php(942): App\Controllers\Bot->botApi()
+#8 C:\xampp\htdocs\wa-bot\vendor\codeigniter4\framework\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Bot))
+#9 C:\xampp\htdocs\wa-bot\vendor\codeigniter4\framework\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\wa-bot\index.php(79): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2023-11-10 02:06:15 --> Table 'wa_bot.mail' doesn't exist
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `mail`
+WHERE `user_id` IS NULL', [], false)
+ 2 SYSTEMPATH\Model.php(237): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(624): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Controllers\Bot.php(24): CodeIgniter\BaseModel->findAll()
+ 5 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\Bot->botApi()
+ 6 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Bot))
+ 7 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-11-10 02:06:29 --> mysqli_sql_exception: Table 'wa_bot.mail' doesn't exist in C:\xampp\htdocs\wa-bot\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\xampp\htdocs\wa-bot\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\xampp\htdocs\wa-bot\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\xampp\htdocs\wa-bot\vendor\codeigniter4\framework\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\xampp\htdocs\wa-bot\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\wa-bot\vendor\codeigniter4\framework\system\Model.php(237): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\wa-bot\vendor\codeigniter4\framework\system\BaseModel.php(624): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\wa-bot\app\Controllers\Bot.php(24): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\wa-bot\vendor\codeigniter4\framework\system\CodeIgniter.php(942): App\Controllers\Bot->botApi()
+#8 C:\xampp\htdocs\wa-bot\vendor\codeigniter4\framework\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Bot))
+#9 C:\xampp\htdocs\wa-bot\vendor\codeigniter4\framework\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\wa-bot\index.php(79): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2023-11-10 02:06:29 --> Table 'wa_bot.mail' doesn't exist
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `mail`
+WHERE `user_id` IS NULL', [], false)
+ 2 SYSTEMPATH\Model.php(237): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(624): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Controllers\Bot.php(24): CodeIgniter\BaseModel->findAll()
+ 5 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\Bot->botApi()
+ 6 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Bot))
+ 7 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-11-10 02:06:30 --> mysqli_sql_exception: Table 'wa_bot.mail' doesn't exist in C:\xampp\htdocs\wa-bot\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\xampp\htdocs\wa-bot\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\xampp\htdocs\wa-bot\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\xampp\htdocs\wa-bot\vendor\codeigniter4\framework\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\xampp\htdocs\wa-bot\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\wa-bot\vendor\codeigniter4\framework\system\Model.php(237): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\wa-bot\vendor\codeigniter4\framework\system\BaseModel.php(624): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\wa-bot\app\Controllers\Bot.php(24): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\wa-bot\vendor\codeigniter4\framework\system\CodeIgniter.php(942): App\Controllers\Bot->botApi()
+#8 C:\xampp\htdocs\wa-bot\vendor\codeigniter4\framework\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Bot))
+#9 C:\xampp\htdocs\wa-bot\vendor\codeigniter4\framework\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\wa-bot\index.php(79): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2023-11-10 02:06:30 --> Table 'wa_bot.mail' doesn't exist
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `mail`
+WHERE `user_id` IS NULL', [], false)
+ 2 SYSTEMPATH\Model.php(237): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(624): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Controllers\Bot.php(24): CodeIgniter\BaseModel->findAll()
+ 5 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\Bot->botApi()
+ 6 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Bot))
+ 7 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-11-10 02:07:18 --> App\Controllers\Bot::botAI(): Argument #1 ($message) must be of type string, null given, called in C:\xampp\htdocs\wa-bot\app\Controllers\Bot.php on line 34
+in APPPATH\Controllers\Bot.php on line 47.
+ 1 APPPATH\Controllers\Bot.php(34): App\Controllers\Bot->botAI(null)
+ 2 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\Bot->botApi()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Bot))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-11-10 02:11:47 --> mysqli_sql_exception: Table 'real_estate.bot_follow_up' doesn't exist in C:\xampp\htdocs\wa-bot\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\xampp\htdocs\wa-bot\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\xampp\htdocs\wa-bot\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\xampp\htdocs\wa-bot\vendor\codeigniter4\framework\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\xampp\htdocs\wa-bot\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\wa-bot\vendor\codeigniter4\framework\system\Model.php(237): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\wa-bot\vendor\codeigniter4\framework\system\BaseModel.php(624): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\wa-bot\app\Controllers\Bot.php(27): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\wa-bot\vendor\codeigniter4\framework\system\CodeIgniter.php(942): App\Controllers\Bot->botApi()
+#8 C:\xampp\htdocs\wa-bot\vendor\codeigniter4\framework\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Bot))
+#9 C:\xampp\htdocs\wa-bot\vendor\codeigniter4\framework\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\wa-bot\index.php(79): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2023-11-10 02:11:47 --> Table 'real_estate.bot_follow_up' doesn't exist
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `bot_follow_up`
+WHERE `user_id` = :user_id:', [...], false)
+ 2 SYSTEMPATH\Model.php(237): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(624): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Controllers\Bot.php(27): CodeIgniter\BaseModel->findAll()
+ 5 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\Bot->botApi()
+ 6 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Bot))
+ 7 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-11-10 02:11:56 --> mysqli_sql_exception: Table 'real_estate.bot_follow_up' doesn't exist in C:\xampp\htdocs\wa-bot\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\xampp\htdocs\wa-bot\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\xampp\htdocs\wa-bot\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\xampp\htdocs\wa-bot\vendor\codeigniter4\framework\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\xampp\htdocs\wa-bot\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\wa-bot\vendor\codeigniter4\framework\system\Model.php(237): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\wa-bot\vendor\codeigniter4\framework\system\BaseModel.php(624): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\wa-bot\app\Controllers\Bot.php(27): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\wa-bot\vendor\codeigniter4\framework\system\CodeIgniter.php(942): App\Controllers\Bot->botApi()
+#8 C:\xampp\htdocs\wa-bot\vendor\codeigniter4\framework\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Bot))
+#9 C:\xampp\htdocs\wa-bot\vendor\codeigniter4\framework\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\wa-bot\index.php(79): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2023-11-10 02:11:56 --> Table 'real_estate.bot_follow_up' doesn't exist
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `bot_follow_up`
+WHERE `user_id` = :user_id:', [...], false)
+ 2 SYSTEMPATH\Model.php(237): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(624): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Controllers\Bot.php(27): CodeIgniter\BaseModel->findAll()
+ 5 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\Bot->botApi()
+ 6 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Bot))
+ 7 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-11-10 02:29:10 --> mysqli_sql_exception: Unknown column 'status' in 'where clause' in C:\xampp\htdocs\wa-bot\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\xampp\htdocs\wa-bot\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\xampp\htdocs\wa-bot\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\xampp\htdocs\wa-bot\vendor\codeigniter4\framework\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\xampp\htdocs\wa-bot\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\wa-bot\vendor\codeigniter4\framework\system\Model.php(237): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\wa-bot\vendor\codeigniter4\framework\system\BaseModel.php(624): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\wa-bot\app\Controllers\Bot.php(54): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\wa-bot\app\Controllers\Bot.php(37): App\Controllers\Bot->step_1('Solace A', 'This is testing')
+#8 C:\xampp\htdocs\wa-bot\vendor\codeigniter4\framework\system\CodeIgniter.php(942): App\Controllers\Bot->botApi()
+#9 C:\xampp\htdocs\wa-bot\vendor\codeigniter4\framework\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Bot))
+#10 C:\xampp\htdocs\wa-bot\vendor\codeigniter4\framework\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\wa-bot\index.php(79): CodeIgniter\CodeIgniter->run()
+#12 {main}
+CRITICAL - 2023-11-10 02:29:10 --> Unknown column 'status' in 'where clause'
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `bot_follow_up`
+WHERE `status` = :status:', [...], false)
+ 2 SYSTEMPATH\Model.php(237): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(624): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Controllers\Bot.php(54): CodeIgniter\BaseModel->findAll()
+ 5 APPPATH\Controllers\Bot.php(37): App\Controllers\Bot->step_1('Solace A', 'This is testing')
+ 6 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\Bot->botApi()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Bot))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-11-10 02:30:08 --> mysqli_sql_exception: Unknown column 'status' in 'where clause' in C:\xampp\htdocs\wa-bot\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\xampp\htdocs\wa-bot\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\xampp\htdocs\wa-bot\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\xampp\htdocs\wa-bot\vendor\codeigniter4\framework\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\xampp\htdocs\wa-bot\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\wa-bot\vendor\codeigniter4\framework\system\Model.php(237): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\wa-bot\vendor\codeigniter4\framework\system\BaseModel.php(624): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\wa-bot\app\Controllers\Bot.php(54): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\wa-bot\app\Controllers\Bot.php(37): App\Controllers\Bot->step_1('Solace A', 'This is testing')
+#8 C:\xampp\htdocs\wa-bot\vendor\codeigniter4\framework\system\CodeIgniter.php(942): App\Controllers\Bot->botApi()
+#9 C:\xampp\htdocs\wa-bot\vendor\codeigniter4\framework\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Bot))
+#10 C:\xampp\htdocs\wa-bot\vendor\codeigniter4\framework\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\wa-bot\index.php(79): CodeIgniter\CodeIgniter->run()
+#12 {main}
+CRITICAL - 2023-11-10 02:30:09 --> Unknown column 'status' in 'where clause'
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `bot_follow_up`
+WHERE `status` = :status:', [...], false)
+ 2 SYSTEMPATH\Model.php(237): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(624): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Controllers\Bot.php(54): CodeIgniter\BaseModel->findAll()
+ 5 APPPATH\Controllers\Bot.php(37): App\Controllers\Bot->step_1('Solace A', 'This is testing')
+ 6 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\Bot->botApi()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Bot))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-11-10 02:32:19 --> Attempt to read property "name" on array
+in APPPATH\Controllers\Bot.php on line 61.
+ 1 APPPATH\Controllers\Bot.php(61): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "name" on array', 'C:\\xampp\\htdocs\\wa-bot\\app\\Controllers\\Bot.php', 61)
+ 2 APPPATH\Controllers\Bot.php(37): App\Controllers\Bot->step_1('Solace A', 'This is testing')
+ 3 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\Bot->botApi()
+ 4 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Bot))
+ 5 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-11-10 03:09:04 --> strtotime(): Argument #2 ($baseTimestamp) must be of type ?int, string given
+in APPPATH\Controllers\Bot.php on line 116.
+ 1 APPPATH\Controllers\Bot.php(116): strtotime('2023-11-10', '+ 1 day')
+ 2 APPPATH\Controllers\Bot.php(45): App\Controllers\Bot->update_location('Solace A', 'my location argentina ID LC11 but I live you us No. 49 10 by lc road.')
+ 3 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\Bot->botApi()
+ 4 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Bot))
+ 5 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-11-10 11:44:04 --> Too few arguments to function App\Controllers\Bot::botApi(), 0 passed in C:\xampp\htdocs\wa-bot\vendor\codeigniter4\framework\system\CodeIgniter.php on line 942 and exactly 2 expected
+in APPPATH\Controllers\Bot.php on line 13.
+ 1 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\Bot->botApi()
+ 2 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Bot))
+ 3 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-11-10 11:46:04 --> Undefined array key "location_id"
+in APPPATH\Controllers\Bot.php on line 25.
+ 1 APPPATH\Controllers\Bot.php(25): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "location_id"', 'C:\\xampp\\htdocs\\wa-bot\\app\\Controllers\\Bot.php', 25)
+ 2 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\Bot->botApi()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Bot))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-11-10 11:51:37 --> Undefined array key "location_id"
+in APPPATH\Controllers\Bot.php on line 35.
+ 1 APPPATH\Controllers\Bot.php(35): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "location_id"', 'C:\\xampp\\htdocs\\wa-bot\\app\\Controllers\\Bot.php', 35)
+ 2 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\Bot->botApi()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Bot))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-11-10 11:51:38 --> Undefined array key "location_id"
+in APPPATH\Controllers\Bot.php on line 35.
+ 1 APPPATH\Controllers\Bot.php(35): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "location_id"', 'C:\\xampp\\htdocs\\wa-bot\\app\\Controllers\\Bot.php', 35)
+ 2 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\Bot->botApi()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Bot))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-11-10 11:52:36 --> Undefined array key "location_id"
+in APPPATH\Controllers\Bot.php on line 35.
+ 1 APPPATH\Controllers\Bot.php(35): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "location_id"', 'C:\\xampp\\htdocs\\wa-bot\\app\\Controllers\\Bot.php', 35)
+ 2 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\Bot->botApi()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Bot))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-11-10 11:52:56 --> Undefined array key "location_id"
+in APPPATH\Controllers\Bot.php on line 35.
+ 1 APPPATH\Controllers\Bot.php(35): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "location_id"', 'C:\\xampp\\htdocs\\wa-bot\\app\\Controllers\\Bot.php', 35)
+ 2 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\Bot->botApi()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Bot))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-11-10 11:53:30 --> Undefined array key "location_id"
+in APPPATH\Controllers\Bot.php on line 35.
+ 1 APPPATH\Controllers\Bot.php(35): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "location_id"', 'C:\\xampp\\htdocs\\wa-bot\\app\\Controllers\\Bot.php', 35)
+ 2 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\Bot->botApi()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Bot))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-11-10 11:53:42 --> Undefined array key "location_id"
+in APPPATH\Controllers\Bot.php on line 35.
+ 1 APPPATH\Controllers\Bot.php(35): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "location_id"', 'C:\\xampp\\htdocs\\wa-bot\\app\\Controllers\\Bot.php', 35)
+ 2 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\Bot->botApi()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Bot))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-11-10 11:53:47 --> Undefined array key "location_id"
+in APPPATH\Controllers\Bot.php on line 35.
+ 1 APPPATH\Controllers\Bot.php(35): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "location_id"', 'C:\\xampp\\htdocs\\wa-bot\\app\\Controllers\\Bot.php', 35)
+ 2 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\Bot->botApi()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Bot))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-11-10 11:54:32 --> Undefined array key "location_id"
+in APPPATH\Controllers\Bot.php on line 35.
+ 1 APPPATH\Controllers\Bot.php(35): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "location_id"', 'C:\\xampp\\htdocs\\wa-bot\\app\\Controllers\\Bot.php', 35)
+ 2 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\Bot->botApi()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Bot))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-11-10 11:55:49 --> Undefined array key "location_id"
+in APPPATH\Controllers\Bot.php on line 35.
+ 1 APPPATH\Controllers\Bot.php(35): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "location_id"', 'C:\\xampp\\htdocs\\wa-bot\\app\\Controllers\\Bot.php', 35)
+ 2 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\Bot->botApi()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Bot))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-11-10 11:57:42 --> Undefined array key "location_id"
+in APPPATH\Controllers\Bot.php on line 35.
+ 1 APPPATH\Controllers\Bot.php(35): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "location_id"', 'C:\\xampp\\htdocs\\wa-bot\\app\\Controllers\\Bot.php', 35)
+ 2 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\Bot->botApi()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Bot))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-11-10 14:07:16 --> Trying to access array offset on value of type null
+in APPPATH\Controllers\Bot.php on line 259.
+ 1 APPPATH\Controllers\Bot.php(259): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'C:\\xampp\\htdocs\\wa-bot\\app\\Controllers\\Bot.php', 259)
+ 2 APPPATH\Controllers\Bot.php(59): App\Controllers\Bot->searchHotels([...])
+ 3 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\Bot->botApi()
+ 4 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Bot))
+ 5 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-11-10 14:08:41 --> Trying to access array offset on value of type null
+in APPPATH\Controllers\Bot.php on line 260.
+ 1 APPPATH\Controllers\Bot.php(260): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'C:\\xampp\\htdocs\\wa-bot\\app\\Controllers\\Bot.php', 260)
+ 2 APPPATH\Controllers\Bot.php(59): App\Controllers\Bot->searchHotels([...])
+ 3 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\Bot->botApi()
+ 4 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Bot))
+ 5 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-11-10 14:08:43 --> Trying to access array offset on value of type null
+in APPPATH\Controllers\Bot.php on line 260.
+ 1 APPPATH\Controllers\Bot.php(260): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'C:\\xampp\\htdocs\\wa-bot\\app\\Controllers\\Bot.php', 260)
+ 2 APPPATH\Controllers\Bot.php(59): App\Controllers\Bot->searchHotels([...])
+ 3 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\Bot->botApi()
+ 4 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Bot))
+ 5 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-11-10 14:08:58 --> Trying to access array offset on value of type null
+in APPPATH\Controllers\Bot.php on line 260.
+ 1 APPPATH\Controllers\Bot.php(260): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'C:\\xampp\\htdocs\\wa-bot\\app\\Controllers\\Bot.php', 260)
+ 2 APPPATH\Controllers\Bot.php(59): App\Controllers\Bot->searchHotels([...])
+ 3 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\Bot->botApi()
+ 4 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Bot))
+ 5 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-11-10 14:08:59 --> Trying to access array offset on value of type null
+in APPPATH\Controllers\Bot.php on line 260.
+ 1 APPPATH\Controllers\Bot.php(260): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'C:\\xampp\\htdocs\\wa-bot\\app\\Controllers\\Bot.php', 260)
+ 2 APPPATH\Controllers\Bot.php(59): App\Controllers\Bot->searchHotels([...])
+ 3 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\Bot->botApi()
+ 4 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Bot))
+ 5 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-11-10 14:09:22 --> Attempt to read property "name" on null
+in APPPATH\Controllers\Bot.php on line 260.
+ 1 APPPATH\Controllers\Bot.php(260): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "name" on null', 'C:\\xampp\\htdocs\\wa-bot\\app\\Controllers\\Bot.php', 260)
+ 2 APPPATH\Controllers\Bot.php(59): App\Controllers\Bot->searchHotels([...])
+ 3 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\Bot->botApi()
+ 4 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Bot))
+ 5 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-11-10 14:09:41 --> Trying to access array offset on value of type null
+in APPPATH\Controllers\Bot.php on line 260.
+ 1 APPPATH\Controllers\Bot.php(260): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'C:\\xampp\\htdocs\\wa-bot\\app\\Controllers\\Bot.php', 260)
+ 2 APPPATH\Controllers\Bot.php(59): App\Controllers\Bot->searchHotels([...])
+ 3 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\Bot->botApi()
+ 4 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Bot))
+ 5 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-11-10 14:09:42 --> Trying to access array offset on value of type null
+in APPPATH\Controllers\Bot.php on line 260.
+ 1 APPPATH\Controllers\Bot.php(260): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'C:\\xampp\\htdocs\\wa-bot\\app\\Controllers\\Bot.php', 260)
+ 2 APPPATH\Controllers\Bot.php(59): App\Controllers\Bot->searchHotels([...])
+ 3 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\Bot->botApi()
+ 4 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Bot))
+ 5 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-11-10 14:11:04 --> Cannot use object of type App\Models\HotelsModel as array
+in APPPATH\Controllers\Bot.php on line 257.
+ 1 APPPATH\Controllers\Bot.php(59): App\Controllers\Bot->searchHotels([...])
+ 2 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\Bot->botApi()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Bot))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-11-10 14:11:23 --> Undefined array key "name"
+in APPPATH\Controllers\Bot.php on line 261.
+ 1 APPPATH\Controllers\Bot.php(261): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "name"', 'C:\\xampp\\htdocs\\wa-bot\\app\\Controllers\\Bot.php', 261)
+ 2 APPPATH\Controllers\Bot.php(59): App\Controllers\Bot->searchHotels([...])
+ 3 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\Bot->botApi()
+ 4 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Bot))
+ 5 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-11-10 14:12:29 --> Undefined array key "title"
+in APPPATH\Controllers\Bot.php on line 257.
+ 1 APPPATH\Controllers\Bot.php(257): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "title"', 'C:\\xampp\\htdocs\\wa-bot\\app\\Controllers\\Bot.php', 257)
+ 2 APPPATH\Controllers\Bot.php(59): App\Controllers\Bot->searchHotels([...])
+ 3 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\Bot->botApi()
+ 4 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Bot))
+ 5 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-11-10 14:22:09 --> Attempt to read property "title" on array
+in APPPATH\Controllers\Bot.php on line 262.
+ 1 APPPATH\Controllers\Bot.php(262): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "title" on array', 'C:\\xampp\\htdocs\\wa-bot\\app\\Controllers\\Bot.php', 262)
+ 2 APPPATH\Controllers\Bot.php(59): App\Controllers\Bot->searchHotels([...])
+ 3 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\Bot->botApi()
+ 4 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Bot))
+ 5 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-11-10 15:56:32 --> Call to undefined method App\Controllers\Bot::getDate()
+in APPPATH\Controllers\Bot.php on line 39.
+ 1 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\Bot->botApi()
+ 2 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Bot))
+ 3 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-11-10 16:36:24 --> Call to undefined function App\Controllers\locSearch()
+in APPPATH\Controllers\Bot.php on line 31.
+ 1 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\Bot->botApi()
+ 2 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Bot))
+ 3 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-11-10 17:20:27 --> Undefined array key "adults"
+in APPPATH\Controllers\Bot.php on line 270.
+ 1 APPPATH\Controllers\Bot.php(270): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "adults"', 'C:\\xampp\\htdocs\\wa-bot\\app\\Controllers\\Bot.php', 270)
+ 2 APPPATH\Controllers\Bot.php(62): App\Controllers\Bot->searchHotels([...])
+ 3 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\Bot->botApi()
+ 4 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Bot))
+ 5 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-11-10 17:20:43 --> Undefined array key "children"
+in APPPATH\Controllers\Bot.php on line 270.
+ 1 APPPATH\Controllers\Bot.php(270): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "children"', 'C:\\xampp\\htdocs\\wa-bot\\app\\Controllers\\Bot.php', 270)
+ 2 APPPATH\Controllers\Bot.php(62): App\Controllers\Bot->searchHotels([...])
+ 3 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\Bot->botApi()
+ 4 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Bot))
+ 5 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-11-10 17:22:45 --> strtotime(): Argument #2 ($baseTimestamp) must be of type ?int, string given
+in APPPATH\Controllers\Bot.php on line 270.
+ 1 APPPATH\Controllers\Bot.php(270): strtotime('2023-11-10', '2023-11-12 00:00:00.000000')
+ 2 APPPATH\Controllers\Bot.php(62): App\Controllers\Bot->searchHotels([...])
+ 3 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\Bot->botApi()
+ 4 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Bot))
+ 5 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
