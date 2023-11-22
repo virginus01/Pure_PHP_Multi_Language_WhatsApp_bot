@@ -1,0 +1,24 @@
+CRITICAL - 2023-11-22 00:07:59 --> Undefined array key 3
+in APPPATH\Controllers\Bot.php on line 369.
+ 1 APPPATH\Controllers\Bot.php(369): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 3', 'C:\\xampp\\htdocs\\Pure_PHP_Multi_Language_WhatsApp_bot\\app\\Controllers\\Bot.php', 369)
+ 2 APPPATH\Controllers\Bot.php(111): App\Controllers\Bot->getAdults('1')
+ 3 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\Bot->botApi()
+ 4 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Bot))
+ 5 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-11-22 00:22:54 --> Undefined array key 0
+in APPPATH\Controllers\Bot.php on line 438.
+ 1 APPPATH\Controllers\Bot.php(438): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 0', 'C:\\xampp\\htdocs\\Pure_PHP_Multi_Language_WhatsApp_bot\\app\\Controllers\\Bot.php', 438)
+ 2 APPPATH\Controllers\Bot.php(138): App\Controllers\Bot->searchHotels([...])
+ 3 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\Bot->botApi()
+ 4 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Bot))
+ 5 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-11-22 08:55:29 --> Undefined array key 1
+in APPPATH\Controllers\Search.php on line 26.
+ 1 APPPATH\Controllers\Search.php(26): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 1', 'C:\\xampp\\htdocs\\Pure_PHP_Multi_Language_WhatsApp_bot\\app\\Controllers\\Search.php', 26)
+ 2 APPPATH\Controllers\Bot.php(139): App\Controllers\Search->searchHotels([...])
+ 3 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\Bot->botApi()
+ 4 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Bot))
+ 5 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()

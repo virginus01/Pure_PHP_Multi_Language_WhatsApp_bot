@@ -38,7 +38,7 @@ class Bot extends Controller
 
         if (strtolower($message) == 'stop') {
             $this->update_status($sender);
-            $res["replies"][]["message"] = "You have been added to bot ignore list, you won't receive message from bot again.\n\n\n\To start receiving bot help again, reply with *clear*";
+            $res["replies"][]["message"] = "You have been added to bot ignore list, you won't receive message from bot again.\n\n\nTo start receiving bot help again, reply *clear*";
             return $this->response->setJSON($res);
         }
 
@@ -46,53 +46,159 @@ class Bot extends Controller
             return $this->response->setJSON(["error" => "user upted out of bot"]);
         }
 
+        //start core operations
+        $nextAction = $this->checkNextAction($sender);
 
-        if ($this->locSearch($message) != false) {
-            if ($this->update_location($sender, $this->locSearch($message)) == true) {
-                $session = $this->getSession($sender);
-                return $this->askCheckInDate($this->response);
+        if ($nextAction == "location") {
+            if ($this->locSearch($message) != false) {
+                if ($this->update_location($sender, $this->locSearch($message)) == true) {
+                    //update the session and continue
+                    $session = $this->getSession($sender);
+                    $nextAction = $this->checkNextAction($sender);
+                } else {
+                    return $this->askLocation();
+                }
             } else {
                 return $this->askLocation();
             }
-        } else if (!is_null($session["location_id"])) { {
+        }
 
-                if ($this->getDate($message) == true) {
 
-                    if (is_null($session["start_date"])) {
-                        $this->update_checkInDate($sender, $message);
-                        return $this->askCheckOutDate();
-                    } else    if (is_null($session["end_date"]) && !is_null($session["start_date"])) {
-                        $this->update_checkOutDate($sender, $message);
-                        return   $this->askAdults();
-                    } else {
-                        return $this->askAdults();
-                    }
-                } else if (is_null($session["start_date"])) {
-                    return $this->askCheckInDate($this->response);
-                } else if (is_null($session["end_date"])) {
-                    return $this->askCheckOutDate();
+        if ($nextAction == "type") {
+            if ($this->typeSearch($message) != false) {
+                if ($this->update_type($sender, $this->typeSearch($message)) == true) {
+                    //update the session and continue
+                    $session = $this->getSession($sender);
+                    $nextAction = $this->checkNextAction($sender);
                 } else {
-                    if ($this->getAdults($message) != false && is_null($session["adult"])) {
-
-                        $this->update_adults($sender, $this->getAdults($message));
-                        return $this->askChildren();
-                    } else if ($this->getChildren($message) != false && !is_null($session["adult"])) {
-                        $this->update_child($sender, $this->getChildren($message));
-                        return $this->response->setJSON($this->searchHotels($session));
-                    } else {
-
-                        return  $this->askChildren();
-                    }
+                    return $this->askType();
                 }
+            } else {
+                return $this->askType();
             }
-        } else {
-            return $this->askLocation();
+        }
+
+
+        if ($nextAction == "start_date") {
+            if ($this->getDate($message) != false) {
+                if ($this->update_checkInDate($sender, $message) == true) {
+                    //update the session and continue
+                    $session = $this->getSession($sender);
+                    $nextAction = $this->checkNextAction($sender);
+                } else {
+                    return $this->askCheckInDate();
+                }
+            } else {
+                return $this->askCheckInDate();
+            }
+        }
+
+        if ($nextAction == "end_date") {
+            if ($this->getCheckOutDate($message, $session["start_date"]) != false) {
+                if ($this->update_checkOutDate($sender, $message) == true) {
+                    //update the session and continue
+                    $session = $this->getSession($sender);
+                    $nextAction = $this->checkNextAction($sender);
+                } else {
+                    return $this->askCheckOutDate();
+                }
+            } else {
+                return $this->askCheckOutDate();
+            }
+        }
+
+        if ($nextAction == "adult") {
+            if ($this->getAdults($message) != false) {
+                if ($this->update_adults($sender, $this->getAdults($message))) {
+                    //update the session and continue
+                    return $this->askChildren();
+                } else {
+                    return $this->askAdults();
+                }
+            } else {
+                return $this->askAdults();
+            }
+        }
+
+        if ($nextAction == "child") {
+            if ($this->getChildren($message) != false) {
+                if ($this->update_child($sender, $this->getChildren($message))) {
+                    //update the session and continue
+                    $session = $this->getSession($sender);
+                    $nextAction = $this->checkNextAction($sender);
+                } else {
+                    return $this->askChildren();
+                }
+            } else {
+                return $this->askChildren();
+            }
+        }
+
+        if ($nextAction == "search_hotel") {
+            $search = new Search();
+            return $this->response->setJSON($search->searchHotels($session));
+        }
+
+        if ($nextAction == "search_events") {
+            $search = new Search();
+            return $this->response->setJSON($search->searchEvents($session));
+        }
+
+        if ($nextAction == "search_spaces") {
+            $search = new Search();
+            return $this->response->setJSON($search->searchSpaces($session));
         }
 
 
         ///
     }
 
+    public function checkNextAction($sender)
+    {
+        $session = $this->getSession($sender);
+
+        if ($session["location_id"] == null) {
+            return "location";
+        }
+
+        if ($session["type"] == null) {
+            return "type";
+        }
+
+        if ($session["start_date"] == null) {
+            return "start_date";
+        }
+
+        if ($session["end_date"] == null) {
+            return "end_date";
+        }
+
+        if ($session["adult"] == null) {
+            return "adult";
+        }
+
+        if ($session["child"] == null) {
+            return "child";
+        }
+
+        if ($session["type"] == "hotel") {
+            return "search_hotel";
+        }
+
+        if ($session["type"] == "spaces") {
+            return "search_spaces";
+        }
+
+        if ($session["type"] == "event" || $session["type"] == "tour") {
+            return "search_events";
+        }
+
+        return "search_hotel";
+    }
+
+    public function checkActionCompleted()
+    {
+    }
     private function getSession(string $sender)
     {
         $model = new BotModel();
@@ -109,8 +215,7 @@ class Bot extends Controller
     }
     private function update_location($sender, $loc_id)
     {
-        //checking if message is all about location
-        //  preg_match('/LC(\d+)/', $message, $matches);
+
         $botModel = new BotModel();
         $locModel = new LocationModel();
 
@@ -125,6 +230,23 @@ class Bot extends Controller
             } else {
                 return false;
             }
+        } else {
+            return false;
+        }
+    }
+
+
+
+
+    private function update_type($sender, $type)
+    {
+        $botModel = new BotModel();
+
+        if (isset($type)) {
+            $botModel->set("type", $type);
+            $botModel->where("user_id", $sender);
+            $botModel->update();
+            return true;
         } else {
             return false;
         }
@@ -195,33 +317,70 @@ class Bot extends Controller
 
         $locations = $locM->where("status", 'publish')->findAll();
         $res['replies'] = [];
-        $res['replies'][]['message'] =  "*I'm Tangodom's WhatsApp Bot* 🤖 \n\n\n *Below are some helpful tips*\n\n\n To talk to human instead, reply with *stop*\n\n To get help, reply with *help*\n\nTo reset your chat session or swith back to bot, reply with *clear*";
+        $res['replies'][]['message'] =  "*I'm Tangodom's WhatsApp Bot* 🤖\n\n\n*Below are some helpful tips*\n\n\nTo talk to human instead, reply *stop*\n\n To get help, reply *help*\n\nTo reset your chat session or switch back to bot, reply *clear*";
         $n = 1;
         foreach ($locations as $location) {
-            $loc[] = $n . ": " . $location["name"];
+            $loc[] = $n . ". " . $location["name"];
 
             $n++;
         }
-        $res['replies'][]['message'] =  "*Below are the list of our available locations*\n\n\n" . implode("\n", $loc) . "\n\n\n_kindly reply me your preferred location_";
+        $res['replies'][]['message'] =  "*Below are the list of our available locations*\n\n\n" . implode("\n\n", $loc) . "\n\n\n_kindly reply with your preferred location_";
 
         return $this->response->setJSON($res);
     }
 
 
-    private function askCheckInDate($response)
+    private function askCheckInDate()
     {
 
         $date = date('d/m/Y', strtotime('+1 day'));
-        $res['replies'][]["message"] = "*When do you plan to check in?*\n\n\nExample: {$date}";
+        $res['replies'][]["message"] = "*When do you plan to check in?*\n\n\n```Please reply using the following format: day/month/year```\n\n\n_Example: {$date}_";
         return $this->response->setJSON($res);
     }
 
     private function getDate(string $message)
     {
+
         if (preg_match('/(\d{2})\/(\d{2})\/(\d{4})/', $message, $matches)) {
+
             $dateString = "{$matches[3]}-{$matches[2]}-{$matches[1]}";
+
             if ($this->isValidDate($dateString)) {
-                return true;
+
+                $date = new DateTime($dateString);
+                $today = new Datetime(date('Y-m-d'));
+
+                if ($date < $today) {
+                    return false;
+                } else {
+                    return true;
+                }
+            } else {
+                return false;
+            }
+        }
+    }
+
+    private function getCheckOutDate(string $message, $checkInDate)
+    {
+
+        if (preg_match('/(\d{2})\/(\d{2})\/(\d{4})/', $message, $matches)) {
+
+            $checkOutDateString = "{$matches[3]}-{$matches[2]}-{$matches[1]}";
+
+            if ($this->isValidDate($checkOutDateString)) {
+
+                $checkOutDate = new DateTime($checkOutDateString);
+                $checkInDate = new DateTime($checkInDate);
+
+                $interval = $checkOutDate->diff($checkInDate);
+                $daysDiff = $interval->days;
+
+                if ($daysDiff >= 1) {
+                    return true;
+                } else {
+                    return false;
+                }
             } else {
                 return false;
             }
@@ -231,7 +390,7 @@ class Bot extends Controller
     private function askCheckOutDate()
     {
         $date = date('d/m/Y', strtotime('+2 day'));
-        $res['replies'][]["message"] = "*When do you plan to check out?*\n\n\nExample: {$date}";
+        $res['replies'][]["message"] = "*When do you plan to check out?*\n\n\n```Please reply using the following format: day/month/year```\n\n\n_Example: {$date}_";
         return $this->response->setJSON($res);
     }
 
@@ -242,13 +401,24 @@ class Bot extends Controller
         return $this->response->setJSON($res);
     }
 
+    private function askType()
+    {
+
+        $res['replies'][]["message"] = "*What are you looking for?*\n\n\n1 - A place to stay (Hotel, Homestays, Apartments)\n\n2 - Spaces (Offices, Rehearsal Rooms, Studios)\n\n3- Events\n\n4- Tours";
+        return $this->response->setJSON($res);
+    }
+
     private function getAdults(string $message)
     {
-        if (preg_match('/(\d+)/', $message, $matches)) {
-            $numberOfAdults = (int)$matches[1];
-            return $numberOfAdults + 1;
-        } else {
+        if (preg_match('/(\d{2})\/(\d{2})\/(\d{4})/', $message, $matches)) {
             return false;
+        } else {
+            if (preg_match('/(\d+)/', $message, $matches)) {
+                $numberOfAdults = (int)$matches[1];
+                return $numberOfAdults + 1;
+            } else {
+                return false;
+            }
         }
     }
 
@@ -269,43 +439,12 @@ class Bot extends Controller
         }
     }
 
-    private function searchHotels(array $session)
-    {
-        $hotelsM = new HotelsModel();
-        $roomsM = new RoomsModel();
 
-        $hotels = $hotelsM->where("location_id", $session["location_id"])->where("status", "publish")->findAll();
-
-
-        $res['replies'] = [];
-        if (!empty($hotels)) {
-            foreach ($hotels as $key => $hotel) {
-                $rooms = $roomsM->where("parent_id", $hotel["id"])->where("status", "publish")->findAll();
-
-                $hRooms = array();
-
-                $res['replies'][]['message'] = "Location: " . $this->locName($session["location_id"]) . "\n\nDuration: " . date(("d/m/Y"),  strtotime($session["start_date"]))  . " - " . date(("d/m/Y"),  strtotime($session["end_date"])) . " 24 hours duration (12 noon checkout)" . "\n\nAdult(s): " . $session["adult"] . "\n\nChild(ren): " . $session["child"];
-
-                foreach ($rooms as $room) {
-                    $hRooms[] = "*" . $room["title"] . ".*\n Price: " . $this->custom_num_to_currency($room["price"]) . "\n\nSize: " . $room["size"] . "\n\nBed(s): " . $room["beds"];
-                }
-
-                $res['replies'][]['message'] = "*" . $hotel["title"] . "*\n\n*Link:* " . $this->baseUrl("hotels/" . $hotel["slug"]) . "*\n\n*Available Rooms at " . $hotel["title"] . "currently*\n\n\n" . implode("\n\n", $hRooms) . "";
-
-                $res['replies'][]['message'] = "Perform another search by replying *clear* or *stop* to talk to human instead";
-            }
-        } else {
-            $res['replies'][]['message'] = "No Hotel found. Perform another search by replying *clear*";
-        }
-
-        return $res;
-    }
 
     function locSearch($message)
     {
         $loc = new LocationModel();
         $search =  $loc->like("name", $message)->first();
-
         if (!empty($search)) {
             return $search["id"];
         } else {
@@ -313,23 +452,43 @@ class Bot extends Controller
         }
     }
 
-    function baseUrl($path)
-    {
-        $url = "https://tangodom.online/" . $path;
-        return $url;
-    }
 
-    function locName($id)
+    function typeSearch($string)
     {
-        $loc = new LocationModel();
-        $search =  $loc->where("id", $id)->first();
 
-        if (!empty($search)) {
-            return $search["name"];
-        } else {
-            return false;
+        $string = strtolower($string);
+
+        $hotel_keywords = ['a place to stay', 'hotel', 'hotels', 'homestays', 'apartments'];
+        $spaces_keywords = ['spaces', 'offices', 'rehearsal rooms', 'studios'];
+        $event_keywords = ['events', 'event'];
+        $tour_keywords = ['tour', 'tours'];
+
+        $type = false;
+
+        if ($this->hasMatches($string, $hotel_keywords)) {
+            $type = "hotel";
+        } elseif ($this->hasMatches($string, $spaces_keywords)) {
+            $type = "spaces";
+        } elseif ($this->hasMatches($string, $event_keywords)) {
+            $type = "event";
+        } elseif ($this->hasMatches($string, $tour_keywords)) {
+            $type = "tour";
         }
+
+        return $type;
     }
+
+    function hasMatches($string, $keywords)
+    {
+        foreach ($keywords as $word) {
+            if (strpos($string, $word) !== false) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+
 
     function isValidDate($dateString)
     {
@@ -337,13 +496,5 @@ class Bot extends Controller
 
         // Check if the date string matches the expected format and is a valid date
         return $dateTime && $dateTime->format('Y-m-d') === $dateString;
-    }
-
-
-    public  function custom_num_to_currency($string = false)
-    {
-
-        $result = "$" . number_format($string);
-        return $result;
     }
 }

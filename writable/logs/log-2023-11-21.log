@@ -44,3 +44,113 @@ in SYSTEMPATH\Database\BaseConnection.php on line 428.
  9 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
 10 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
 11 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-11-21 23:42:30 --> Error connecting to the database: mysqli_sql_exception: No connection could be made because the target machine actively refused it in C:\xampp\htdocs\Pure_PHP_Multi_Language_WhatsApp_bot\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:184
+Stack trace:
+#0 C:\xampp\htdocs\Pure_PHP_Multi_Language_WhatsApp_bot\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(184): mysqli->real_connect('localhost', 'root', Object(SensitiveParameterValue), 'real_estate', 3306, '', 0)
+#1 C:\xampp\htdocs\Pure_PHP_Multi_Language_WhatsApp_bot\vendor\codeigniter4\framework\system\Database\BaseConnection.php(392): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\Pure_PHP_Multi_Language_WhatsApp_bot\vendor\codeigniter4\framework\system\Database\Database.php(66): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\Pure_PHP_Multi_Language_WhatsApp_bot\vendor\codeigniter4\framework\system\Database\Config.php(110): CodeIgniter\Database\Database->loadForge(Object(CodeIgniter\Database\MySQLi\Connection))
+#4 C:\xampp\htdocs\Pure_PHP_Multi_Language_WhatsApp_bot\app\Views\database.php(9): CodeIgniter\Database\Config::forge()
+#5 C:\xampp\htdocs\Pure_PHP_Multi_Language_WhatsApp_bot\vendor\codeigniter4\framework\system\View\View.php(228): include('C:\\xampp\\htdocs...')
+#6 C:\xampp\htdocs\Pure_PHP_Multi_Language_WhatsApp_bot\vendor\codeigniter4\framework\system\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#7 C:\xampp\htdocs\Pure_PHP_Multi_Language_WhatsApp_bot\vendor\codeigniter4\framework\system\Common.php(1190): CodeIgniter\View\View->render('database', Array, true)
+#8 C:\xampp\htdocs\Pure_PHP_Multi_Language_WhatsApp_bot\app\Controllers\Home.php(14): view('database')
+#9 C:\xampp\htdocs\Pure_PHP_Multi_Language_WhatsApp_bot\vendor\codeigniter4\framework\system\CodeIgniter.php(942): App\Controllers\Home->database()
+#10 C:\xampp\htdocs\Pure_PHP_Multi_Language_WhatsApp_bot\vendor\codeigniter4\framework\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#11 C:\xampp\htdocs\Pure_PHP_Multi_Language_WhatsApp_bot\vendor\codeigniter4\framework\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 C:\xampp\htdocs\Pure_PHP_Multi_Language_WhatsApp_bot\index.php(79): CodeIgniter\CodeIgniter->run()
+#13 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No connection could be made because the target machine actively refused it in C:\xampp\htdocs\Pure_PHP_Multi_Language_WhatsApp_bot\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:229
+Stack trace:
+#0 C:\xampp\htdocs\Pure_PHP_Multi_Language_WhatsApp_bot\vendor\codeigniter4\framework\system\Database\BaseConnection.php(392): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\Pure_PHP_Multi_Language_WhatsApp_bot\vendor\codeigniter4\framework\system\Database\Database.php(66): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\Pure_PHP_Multi_Language_WhatsApp_bot\vendor\codeigniter4\framework\system\Database\Config.php(110): CodeIgniter\Database\Database->loadForge(Object(CodeIgniter\Database\MySQLi\Connection))
+#3 C:\xampp\htdocs\Pure_PHP_Multi_Language_WhatsApp_bot\app\Views\database.php(9): CodeIgniter\Database\Config::forge()
+#4 C:\xampp\htdocs\Pure_PHP_Multi_Language_WhatsApp_bot\vendor\codeigniter4\framework\system\View\View.php(228): include('C:\\xampp\\htdocs...')
+#5 C:\xampp\htdocs\Pure_PHP_Multi_Language_WhatsApp_bot\vendor\codeigniter4\framework\system\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#6 C:\xampp\htdocs\Pure_PHP_Multi_Language_WhatsApp_bot\vendor\codeigniter4\framework\system\Common.php(1190): CodeIgniter\View\View->render('database', Array, true)
+#7 C:\xampp\htdocs\Pure_PHP_Multi_Language_WhatsApp_bot\app\Controllers\Home.php(14): view('database')
+#8 C:\xampp\htdocs\Pure_PHP_Multi_Language_WhatsApp_bot\vendor\codeigniter4\framework\system\CodeIgniter.php(942): App\Controllers\Home->database()
+#9 C:\xampp\htdocs\Pure_PHP_Multi_Language_WhatsApp_bot\vendor\codeigniter4\framework\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#10 C:\xampp\htdocs\Pure_PHP_Multi_Language_WhatsApp_bot\vendor\codeigniter4\framework\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\Pure_PHP_Multi_Language_WhatsApp_bot\index.php(79): CodeIgniter\CodeIgniter->run()
+#12 {main}
+CRITICAL - 2023-11-21 23:42:30 --> Unable to connect to the database.
+Main connection [MySQLi]: No connection could be made because the target machine actively refused it
+in SYSTEMPATH\Database\BaseConnection.php on line 428.
+ 1 SYSTEMPATH\Database\Database.php(66): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\Config.php(110): CodeIgniter\Database\Database->loadForge(Object(CodeIgniter\Database\MySQLi\Connection))
+ 3 APPPATH\Views\database.php(9): CodeIgniter\Database\Config::forge()
+ 4 SYSTEMPATH\View\View.php(228): include('C:\\xampp\\htdocs\\Pure_PHP_Multi_Language_WhatsApp_bot\\app\\Views\\database.php')
+ 5 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 6 SYSTEMPATH\Common.php(1190): CodeIgniter\View\View->render('database', [], true)
+ 7 APPPATH\Controllers\Home.php(14): view('database')
+ 8 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\Home->database()
+ 9 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+10 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-11-21 23:42:54 --> Error connecting to the database: ErrorException: mysqli::real_connect(): Error while reading greeting packet. PID=19084 in C:\xampp\htdocs\Pure_PHP_Multi_Language_WhatsApp_bot\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:184
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'mysqli::real_co...', 'C:\\xampp\\htdocs...', 184)
+#1 C:\xampp\htdocs\Pure_PHP_Multi_Language_WhatsApp_bot\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(184): mysqli->real_connect('localhost', 'root', Object(SensitiveParameterValue), 'real_estate', 3306, '', 0)
+#2 C:\xampp\htdocs\Pure_PHP_Multi_Language_WhatsApp_bot\vendor\codeigniter4\framework\system\Database\BaseConnection.php(392): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#3 C:\xampp\htdocs\Pure_PHP_Multi_Language_WhatsApp_bot\vendor\codeigniter4\framework\system\Database\Database.php(66): CodeIgniter\Database\BaseConnection->initialize()
+#4 C:\xampp\htdocs\Pure_PHP_Multi_Language_WhatsApp_bot\vendor\codeigniter4\framework\system\Database\Config.php(110): CodeIgniter\Database\Database->loadForge(Object(CodeIgniter\Database\MySQLi\Connection))
+#5 C:\xampp\htdocs\Pure_PHP_Multi_Language_WhatsApp_bot\app\Views\database.php(9): CodeIgniter\Database\Config::forge()
+#6 C:\xampp\htdocs\Pure_PHP_Multi_Language_WhatsApp_bot\vendor\codeigniter4\framework\system\View\View.php(228): include('C:\\xampp\\htdocs...')
+#7 C:\xampp\htdocs\Pure_PHP_Multi_Language_WhatsApp_bot\vendor\codeigniter4\framework\system\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#8 C:\xampp\htdocs\Pure_PHP_Multi_Language_WhatsApp_bot\vendor\codeigniter4\framework\system\Common.php(1190): CodeIgniter\View\View->render('database', Array, true)
+#9 C:\xampp\htdocs\Pure_PHP_Multi_Language_WhatsApp_bot\app\Controllers\Home.php(14): view('database')
+#10 C:\xampp\htdocs\Pure_PHP_Multi_Language_WhatsApp_bot\vendor\codeigniter4\framework\system\CodeIgniter.php(942): App\Controllers\Home->database()
+#11 C:\xampp\htdocs\Pure_PHP_Multi_Language_WhatsApp_bot\vendor\codeigniter4\framework\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#12 C:\xampp\htdocs\Pure_PHP_Multi_Language_WhatsApp_bot\vendor\codeigniter4\framework\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#13 C:\xampp\htdocs\Pure_PHP_Multi_Language_WhatsApp_bot\index.php(79): CodeIgniter\CodeIgniter->run()
+#14 {main}
+
+Next mysqli_sql_exception: MySQL server has gone away in C:\xampp\htdocs\Pure_PHP_Multi_Language_WhatsApp_bot\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:184
+Stack trace:
+#0 C:\xampp\htdocs\Pure_PHP_Multi_Language_WhatsApp_bot\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(184): mysqli->real_connect('localhost', 'root', Object(SensitiveParameterValue), 'real_estate', 3306, '', 0)
+#1 C:\xampp\htdocs\Pure_PHP_Multi_Language_WhatsApp_bot\vendor\codeigniter4\framework\system\Database\BaseConnection.php(392): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\Pure_PHP_Multi_Language_WhatsApp_bot\vendor\codeigniter4\framework\system\Database\Database.php(66): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\Pure_PHP_Multi_Language_WhatsApp_bot\vendor\codeigniter4\framework\system\Database\Config.php(110): CodeIgniter\Database\Database->loadForge(Object(CodeIgniter\Database\MySQLi\Connection))
+#4 C:\xampp\htdocs\Pure_PHP_Multi_Language_WhatsApp_bot\app\Views\database.php(9): CodeIgniter\Database\Config::forge()
+#5 C:\xampp\htdocs\Pure_PHP_Multi_Language_WhatsApp_bot\vendor\codeigniter4\framework\system\View\View.php(228): include('C:\\xampp\\htdocs...')
+#6 C:\xampp\htdocs\Pure_PHP_Multi_Language_WhatsApp_bot\vendor\codeigniter4\framework\system\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#7 C:\xampp\htdocs\Pure_PHP_Multi_Language_WhatsApp_bot\vendor\codeigniter4\framework\system\Common.php(1190): CodeIgniter\View\View->render('database', Array, true)
+#8 C:\xampp\htdocs\Pure_PHP_Multi_Language_WhatsApp_bot\app\Controllers\Home.php(14): view('database')
+#9 C:\xampp\htdocs\Pure_PHP_Multi_Language_WhatsApp_bot\vendor\codeigniter4\framework\system\CodeIgniter.php(942): App\Controllers\Home->database()
+#10 C:\xampp\htdocs\Pure_PHP_Multi_Language_WhatsApp_bot\vendor\codeigniter4\framework\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#11 C:\xampp\htdocs\Pure_PHP_Multi_Language_WhatsApp_bot\vendor\codeigniter4\framework\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 C:\xampp\htdocs\Pure_PHP_Multi_Language_WhatsApp_bot\index.php(79): CodeIgniter\CodeIgniter->run()
+#13 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: MySQL server has gone away in C:\xampp\htdocs\Pure_PHP_Multi_Language_WhatsApp_bot\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:229
+Stack trace:
+#0 C:\xampp\htdocs\Pure_PHP_Multi_Language_WhatsApp_bot\vendor\codeigniter4\framework\system\Database\BaseConnection.php(392): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\Pure_PHP_Multi_Language_WhatsApp_bot\vendor\codeigniter4\framework\system\Database\Database.php(66): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\Pure_PHP_Multi_Language_WhatsApp_bot\vendor\codeigniter4\framework\system\Database\Config.php(110): CodeIgniter\Database\Database->loadForge(Object(CodeIgniter\Database\MySQLi\Connection))
+#3 C:\xampp\htdocs\Pure_PHP_Multi_Language_WhatsApp_bot\app\Views\database.php(9): CodeIgniter\Database\Config::forge()
+#4 C:\xampp\htdocs\Pure_PHP_Multi_Language_WhatsApp_bot\vendor\codeigniter4\framework\system\View\View.php(228): include('C:\\xampp\\htdocs...')
+#5 C:\xampp\htdocs\Pure_PHP_Multi_Language_WhatsApp_bot\vendor\codeigniter4\framework\system\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#6 C:\xampp\htdocs\Pure_PHP_Multi_Language_WhatsApp_bot\vendor\codeigniter4\framework\system\Common.php(1190): CodeIgniter\View\View->render('database', Array, true)
+#7 C:\xampp\htdocs\Pure_PHP_Multi_Language_WhatsApp_bot\app\Controllers\Home.php(14): view('database')
+#8 C:\xampp\htdocs\Pure_PHP_Multi_Language_WhatsApp_bot\vendor\codeigniter4\framework\system\CodeIgniter.php(942): App\Controllers\Home->database()
+#9 C:\xampp\htdocs\Pure_PHP_Multi_Language_WhatsApp_bot\vendor\codeigniter4\framework\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#10 C:\xampp\htdocs\Pure_PHP_Multi_Language_WhatsApp_bot\vendor\codeigniter4\framework\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\Pure_PHP_Multi_Language_WhatsApp_bot\index.php(79): CodeIgniter\CodeIgniter->run()
+#12 {main}
+CRITICAL - 2023-11-21 23:42:54 --> Unable to connect to the database.
+Main connection [MySQLi]: MySQL server has gone away
+in SYSTEMPATH\Database\BaseConnection.php on line 428.
+ 1 SYSTEMPATH\Database\Database.php(66): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\Config.php(110): CodeIgniter\Database\Database->loadForge(Object(CodeIgniter\Database\MySQLi\Connection))
+ 3 APPPATH\Views\database.php(9): CodeIgniter\Database\Config::forge()
+ 4 SYSTEMPATH\View\View.php(228): include('C:\\xampp\\htdocs\\Pure_PHP_Multi_Language_WhatsApp_bot\\app\\Views\\database.php')
+ 5 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 6 SYSTEMPATH\Common.php(1190): CodeIgniter\View\View->render('database', [], true)
+ 7 APPPATH\Controllers\Home.php(14): view('database')
+ 8 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\Home->database()
+ 9 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+10 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()

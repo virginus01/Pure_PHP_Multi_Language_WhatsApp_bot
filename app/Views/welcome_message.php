@@ -1,1 +1,1 @@
-<h1>This is a whatsapp bot section... nothing to display now</h1>
+<h1>This is a whatsapp bot section... nothing to display</h1>
