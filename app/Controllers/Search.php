@@ -22,7 +22,7 @@ class Search extends Controller
         $res['replies'] = [];
         if (!empty($hotels)) {
 
-            $res['replies'][]['message'] = "*These are the rooms available for you in *" . $this->locName($session["location_id"]);
+            $res['replies'][]['message'] = "*These are the rooms available for you in " . $this->locName($session["location_id"]) . "*";
 
 
             foreach ($hotels as $key => $hotel) {
@@ -30,10 +30,10 @@ class Search extends Controller
                 $rooms = $roomsM->where("parent_id", $hotel["id"])->where("status", "publish")->findAll();
                 $hRooms = array();
                 foreach ($rooms as $room) {
-                    $hRooms[] = "*" . $room["title"] . ".*\n\n Price: " . $this->custom_num_to_currency($room["price"]) . "/per day" . "\n\nBed(s): " . $room["beds"];
+                    $hRooms[] = "*" . $room["title"] . "Room.*\n\nPrice: " . $this->custom_num_to_currency($room["price"]) . "/per day" . "\n\nBed(s): " . $room["beds"];
                 }
 
-                $res['replies'][]['message'] = "🏨 *" . $hotel["title"] . "\n\n*Available Rooms at " . $hotel["title"] . " currently*\n\n\n" . implode("\n\n", $hRooms) . "" . "*\n\n*If you are interrested in {$name}, follow this link to make a room reservation or enquiry: * " . $this->baseUrl("hotel/" . $hotel["slug"]);
+                $res['replies'][]['message'] = "🏨 *" . $hotel["title"] . "*\n\n*Available Rooms at " . $hotel["title"] . " currently*\n\n\n" . implode("\n\n", $hRooms) . "" . "\n\n_If you are interrested in {$name}, follow this link to make a room reservation or enquiry: " . $this->baseUrl("hotel/" . $hotel["slug"]) . "_";
             }
             $res['replies'][]['message'] = "Perform another search by replying *clear* or *stop* to talk to human instead and we'll contact you as soon as possible";
         } else {
@@ -55,10 +55,10 @@ class Search extends Controller
 
         if (!empty($events)) {
 
-            $res['replies'][]['message'] = "*These are the activities available for you in *" . $this->locName($session["location_id"]);
+            $res['replies'][]['message'] = "*These are the activities available for you in " . $this->locName($session["location_id"]) . "*";
             foreach ($events as $key => $event) {
                 $name = $event["title"];
-                $res['replies'][]['message'] = "*" . $event["title"] . "*\n\n*Price:* " . $this->custom_num_to_currency($event["price"]) . "\n\n\nIf you are interrested in {$name}, follow this link to make a reservation or enquiry: * " . $this->baseUrl("event/" . $event["slug"]);
+                $res['replies'][]['message'] = "*" . $event["title"] . "*\n\n*Price:* " . $this->custom_num_to_currency($event["price"]) . "\n\n\n_If you are interrested in {$name}, follow this link to make a reservation or enquiry: " . $this->baseUrl("event/" . $event["slug"]) . "_";
             }
             $res['replies'][]['message'] = "Perform another search by replying *clear* or *stop* to talk to human instead and we'll contact you as soon as possible";
         } else {
@@ -81,10 +81,10 @@ class Search extends Controller
         $res['replies'] = [];
 
         if (!empty($spaces)) {
-            $res['replies'][]['message'] = "*These are the spaces available for you in *" . $this->locName($session["location_id"]);
+            $res['replies'][]['message'] = "*These are the spaces available for you in " . $this->locName($session["location_id"]) . "*";
             foreach ($spaces as $key => $space) {
                 $name = $space["title"];
-                $res['replies'][]['message'] = "*" . $space["title"] . "*\n\n*Price:* " . $this->custom_num_to_currency($space["price"]) . "\n\n\nIf you are interrested in {$name}, follow this link to make a reservation or enquiry: * " . $this->baseUrl("space/" . $space["slug"]);
+                $res['replies'][]['message'] = "*" . $space["title"] . "*\n\n*Price:* " . $this->custom_num_to_currency($space["price"]) . "\n\n\n_If you are interrested in {$name}, follow this link to make a reservation or enquiry: " . $this->baseUrl("space/" . $space["slug"]) . "_";
             }
             $res['replies'][]['message'] = "Perform another search by replying *clear* or *stop* to talk to human instead and we'll contact you as soon as possible";
         } else {
