@@ -30,16 +30,18 @@ class Bot extends Controller
 
         $session = $this->getSession($sender);
 
-        if (strtolower($message) == 'clear') {
+        if (strtolower($message) == 'clear' || "limpiar" == strtolower($message)) {
             $model = new BotModel();
             $model->delete($session["id"]);
-            return $this->askLocation();
+            return $this->askLang();
         }
 
-        if (strtolower($message) == 'stop') {
+        if (strtolower($message) == 'stop' || strtolower($message) == 'detener') {
             $this->update_status($sender);
-            $res["replies"][]["message"] = "You have been added to bot ignore list, you won't receive message from bot again.\n\n\nTo start receiving bot help again, reply *clear*";
-            return $this->response->setJSON($res);
+            $res["en"]["replies"][]["message"] = "You have been added to bot ignore list, you won't receive message from bot again.\n\n\nTo start receiving bot help again, reply *clear*";
+            $res["es"]["replies"][]["message"] = "Has sido añadido a la lista de ignorados del bot, no recibirás más mensajes del bot.\n\n\nPara volver a recibir ayuda del bot, responde *limpiar*";
+
+            return $this->response->setJSON($res[$session["language"]]);
         }
 
         if ($session["status"] != 'active') {
@@ -49,6 +51,20 @@ class Bot extends Controller
         //start core operations
         $nextAction = $this->checkNextAction($sender);
 
+        if ($nextAction == "language") {
+            if ($this->langSearch($message) != false) {
+                if ($this->update_lang($sender, $this->langSearch($message)) == true) {
+                    //update the session and continue
+                    $session = $this->getSession($sender);
+                    $nextAction = $this->checkNextAction($sender);
+                } else {
+                    return $this->askLang();
+                }
+            } else {
+                return $this->askLang();
+            }
+        }
+
         if ($nextAction == "location") {
             if ($this->locSearch($message) != false) {
                 if ($this->update_location($sender, $this->locSearch($message)) == true) {
@@ -56,10 +72,10 @@ class Bot extends Controller
                     $session = $this->getSession($sender);
                     $nextAction = $this->checkNextAction($sender);
                 } else {
-                    return $this->askLocation();
+                    return $this->askLocation($session["language"]);
                 }
             } else {
-                return $this->askLocation();
+                return $this->askLocation($session["language"]);
             }
         }
 
@@ -71,10 +87,10 @@ class Bot extends Controller
                     $session = $this->getSession($sender);
                     $nextAction = $this->checkNextAction($sender);
                 } else {
-                    return $this->askType();
+                    return $this->askType($session["language"]);
                 }
             } else {
-                return $this->askType();
+                return $this->askType($session["language"]);
             }
         }
 
@@ -86,10 +102,10 @@ class Bot extends Controller
                     $session = $this->getSession($sender);
                     $nextAction = $this->checkNextAction($sender);
                 } else {
-                    return $this->askCheckInDate();
+                    return $this->askCheckInDate($session["language"]);
                 }
             } else {
-                return $this->askCheckInDate();
+                return $this->askCheckInDate($session["language"]);
             }
         }
 
@@ -100,10 +116,10 @@ class Bot extends Controller
                     $session = $this->getSession($sender);
                     $nextAction = $this->checkNextAction($sender);
                 } else {
-                    return $this->askCheckOutDate();
+                    return $this->askCheckOutDate($session["language"]);
                 }
             } else {
-                return $this->askCheckOutDate();
+                return $this->askCheckOutDate($session["language"]);
             }
         }
 
@@ -111,12 +127,12 @@ class Bot extends Controller
             if ($this->getAdults($message) != false) {
                 if ($this->update_adults($sender, $this->getAdults($message))) {
                     //update the session and continue
-                    return $this->askChildren();
+                    return $this->askChildren($session["language"]);
                 } else {
-                    return $this->askAdults();
+                    return $this->askAdults($session["language"]);
                 }
             } else {
-                return $this->askAdults();
+                return $this->askAdults($session["language"]);
             }
         }
 
@@ -127,10 +143,10 @@ class Bot extends Controller
                     $session = $this->getSession($sender);
                     $nextAction = $this->checkNextAction($sender);
                 } else {
-                    return $this->askChildren();
+                    return $this->askChildren($session["language"]);
                 }
             } else {
-                return $this->askChildren();
+                return $this->askChildren($session["language"]);
             }
         }
 
@@ -156,6 +172,11 @@ class Bot extends Controller
     public function checkNextAction($sender)
     {
         $session = $this->getSession($sender);
+
+
+        if ($session["language"] == null) {
+            return "language";
+        }
 
         if ($session["location_id"] == null) {
             return "location";
@@ -230,6 +251,20 @@ class Bot extends Controller
             } else {
                 return false;
             }
+        } else {
+            return false;
+        }
+    }
+
+
+    private function update_lang($sender, $lang)
+    {
+        $botModel = new BotModel();
+        if (isset($lang)) {
+            $botModel->set("language", $lang);
+            $botModel->where("user_id", $sender);
+            $botModel->update();
+            return true;
         } else {
             return false;
         }
@@ -311,31 +346,43 @@ class Bot extends Controller
         }
     }
 
-    private function askLocation()
+    private function askLocation($lang)
     {
         $locM = new LocationModel();
-
         $locations = $locM->where("status", 'publish')->findAll();
         $res['replies'] = [];
-        $res['replies'][]['message'] =  "*I'm Tangodom's WhatsApp Bot* 🤖\n\n\n*Below are some helpful tips*\n\n\nTo talk to human instead, reply *stop*\n\n To get help, reply *help*\n\nTo reset your chat session or switch back to bot, reply *clear*";
+        $res['en']['replies'][]['message'] =  "*I'm Tangodom's WhatsApp Bot* 🤖\n\n\n*Below are some helpful tips*\n\n\nTo talk to human instead, reply *stop*\n\n To get help, reply *help*\n\nTo reset your chat session or switch back to bot, reply *clear*";
+        $res['es']['replies'][]['message'] =  "*Soy el Bot de WhatsApp de Tangodom* 🤖\n\n\n*A continuación, algunos consejos útiles*\n\n\nPara hablar con un humano en su lugar, responde *detener*\n\nPara obtener ayuda, responde *help*\n\nPara reiniciar tu sesión de chat o volver al bot, responde *limpiar*";
+
         $n = 1;
         foreach ($locations as $location) {
-            $loc[] = $n . ". " . $location["name"];
-
+            $loc[] = $location["id"] . ". " . $location["name"];
             $n++;
         }
-        $res['replies'][]['message'] =  "*Below are the list of our available locations*\n\n\n" . implode("\n\n", $loc) . "\n\n\n_kindly reply with your preferred location_";
+        $res["en"]['replies'][]['message'] =  "*Below are the list of our available locations*\n\n\n" . implode("\n\n", $loc) . "\n\n\n_kindly reply with your preferred location_";
+        $res["es"]['replies'][]['message'] =  "*A continuación se muestra la lista de nuestras ubicaciones disponibles*\n\n\n" . implode("\n\n", $loc) . "\n\n\n_Amablemente responde con tu ubicación preferida_";
+
+        return $this->response->setJSON($res[$lang]);
+    }
+
+
+    private function askLang()
+    {
+
+        $res['replies'][]['message'] =  "*Selecciona tu idioma preferido.* (choose your preferred langauges) \n\n\n1. English \n\n2. Spanish \n\n\n\n_Amablemente responde con tu idioma preferido (kindly reply with your preferred language)_";
 
         return $this->response->setJSON($res);
     }
 
 
-    private function askCheckInDate()
+    private function askCheckInDate($lang)
     {
 
         $date = date('d/m/Y', strtotime('+1 day'));
-        $res['replies'][]["message"] = "*When do you plan to check in?*\n\n\n```Please reply using the following format: day/month/year```\n\n\n_Example: {$date}_";
-        return $this->response->setJSON($res);
+        $res["en"]['replies'][]["message"] = "*When do you plan to check in?*\n\n\n```Please reply using the following format: day/month/year```\n\n\n_Example: {$date}_";
+        $res["es"]['replies'][]["message"] = "*¿Cuándo planeas hacer check-in?*\n\n\n```Por favor, responde utilizando el siguiente formato: día/mes/año```\n\n\n_Ejemplo: {$date}_";
+
+        return $this->response->setJSON($res[$lang]);
     }
 
     private function getDate(string $message)
@@ -387,25 +434,31 @@ class Bot extends Controller
         }
     }
 
-    private function askCheckOutDate()
+    private function askCheckOutDate($lang)
     {
         $date = date('d/m/Y', strtotime('+2 day'));
-        $res['replies'][]["message"] = "*When do you plan to check out?*\n\n\n```Please reply using the following format: day/month/year```\n\n\n_Example: {$date}_";
-        return $this->response->setJSON($res);
+        $res["en"]['replies'][]["message"] = "*When do you plan to check out?*\n\n\n```Please reply using the following format: day/month/year```\n\n\n_Example: {$date}_";
+        $res["es"]['replies'][]["message"] = "*¿Cuándo planeas hacer check-out?*\n\n\n```Por favor, responde utilizando el siguiente formato: día/mes/año```\n\n\n_Ejemplo: {$date}_";
+
+        return $this->response->setJSON($res[$lang]);
     }
 
-    private function askAdults()
+    private function askAdults($lang)
     {
 
-        $res['replies'][]["message"] = "How many adults?";
-        return $this->response->setJSON($res);
+        $res["en"]['replies'][]["message"] = "How many adults?";
+        $res["es"]['replies'][]["message"] = "¿Cuántos adultos?";
+
+        return $this->response->setJSON($res[$lang]);
     }
 
-    private function askType()
+    private function askType($lang)
     {
 
-        $res['replies'][]["message"] = "*What are you looking for?*\n\n\n1 - A place to stay (Hotel, Homestays, Apartments)\n\n2 - Spaces (Offices, Rehearsal Rooms, Studios)\n\n3- Events\n\n4- Tours";
-        return $this->response->setJSON($res);
+        $res["en"]['replies'][]["message"] = "*What are you looking for?*\n\n\n1 - A place to stay (Hotel, Homestays, Apartments)\n\n2 - Spaces (Offices, Rehearsal Rooms, Studios)\n\n3- Events\n\n4- Tours";
+        $res["es"]['replies'][]["message"] = "*¿Qué estás buscando?*\n\n\n1 - Un lugar para alojarse (Hotel, Alojamientos, Apartamentos)\n\n2 - Espacios (Oficinas, Salas de ensayo, Estudios)\n\n3- Eventos\n\n4- Tours";
+
+        return $this->response->setJSON($res[$lang]);
     }
 
     private function getAdults(string $message)
@@ -422,10 +475,12 @@ class Bot extends Controller
         }
     }
 
-    private function askChildren()
+    private function askChildren($lang)
     {
-        $res['replies'][]["message"] = "How many children?";
-        return $this->response->setJSON($res);
+        $res["en"]['replies'][]["message"] = "How many children?";
+        $res["es"]['replies'][]["message"] = "¿Cuántos niños?";
+
+        return $this->response->setJSON($res[$lang]);
     }
 
 
@@ -439,12 +494,41 @@ class Bot extends Controller
         }
     }
 
+    function langSearch($string)
+    {
+
+        $string = strtolower($string);
+
+        $en_keywords = ['english', 'en', 'eng'];
+        $es_keywords = ['spanish', 'es', 'spa'];
+
+
+        $lang = false;
+
+        if ($this->hasLangMatches($string, $en_keywords)) {
+            $lang = "en";
+        } elseif ($this->hasLangMatches($string, $es_keywords)) {
+            $lang = "es";
+        }
+        return $lang;
+    }
+
+    function hasLangMatches($string, $keywords)
+    {
+        foreach ($keywords as $word) {
+            if (strpos($string, $word) !== false) {
+                return true;
+            }
+        }
+        return false;
+    }
+
 
 
     function locSearch($message)
     {
         $loc = new LocationModel();
-        $search =  $loc->like("name", $message)->first();
+        $search =  $loc->like("name", $message)->orWhere("id", $message)->first();
         if (!empty($search)) {
             return $search["id"];
         } else {
@@ -458,10 +542,11 @@ class Bot extends Controller
 
         $string = strtolower($string);
 
-        $hotel_keywords = ['a place to stay', 'hotel', 'hotels', 'homestays', 'apartments'];
-        $spaces_keywords = ['spaces', 'offices', 'rehearsal rooms', 'studios'];
-        $event_keywords = ['events', 'event'];
-        $tour_keywords = ['tour', 'tours'];
+        $hotel_keywords = ['a place to stay', 'hotel', 'hotels', 'homestays', 'apartments', 'un lugar para alojarse', 'alojamiento', 'hoteles', 'hostales', 'apartamentos'];
+        $spaces_keywords = ['spaces', 'offices', 'rehearsal rooms', 'studios', 'espacios', 'oficinas', 'salas de ensayo', 'estudios'];
+        $event_keywords = ['events', 'event', 'eventos'];
+        $tour_keywords = ['tour', 'tours', 'tour', 'recorridos'];
+
 
         $type = false;
 

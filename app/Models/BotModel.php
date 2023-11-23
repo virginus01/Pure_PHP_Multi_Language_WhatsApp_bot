@@ -7,7 +7,7 @@ use CodeIgniter\Model;
 class BotModel extends Model
 {
     protected $table = 'bot_follow_up';
-    protected $allowedFields = ['id', 'user_id', 'location_id', 'start_date', 'type', 'end_date', 'adult', 'child', 'status', 'created_at', 'updated_at'];
+    protected $allowedFields = ['id', 'user_id', 'location_id', 'start_date', 'type', 'end_date', 'language', 'adult', 'child', 'status', 'created_at', 'updated_at'];
 
     protected $beforeInsert = ['beforeInsert'];
     protected $beforeUpdate = ['beforeUpdate'];

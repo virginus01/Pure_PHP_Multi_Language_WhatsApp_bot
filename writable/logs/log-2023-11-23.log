@@ -1,0 +1,66 @@
+ERROR - 2023-11-23 09:45:22 --> Error connecting to the database: mysqli_sql_exception: No connection could be made because the target machine actively refused it in C:\xampp\htdocs\Pure_PHP_Multi_Language_WhatsApp_bot\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:184
+Stack trace:
+#0 C:\xampp\htdocs\Pure_PHP_Multi_Language_WhatsApp_bot\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(184): mysqli->real_connect('localhost', 'root', Object(SensitiveParameterValue), 'real_estate', 3306, '', 0)
+#1 C:\xampp\htdocs\Pure_PHP_Multi_Language_WhatsApp_bot\vendor\codeigniter4\framework\system\Database\BaseConnection.php(392): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\Pure_PHP_Multi_Language_WhatsApp_bot\vendor\codeigniter4\framework\system\Database\BaseConnection.php(575): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\Pure_PHP_Multi_Language_WhatsApp_bot\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\Pure_PHP_Multi_Language_WhatsApp_bot\vendor\codeigniter4\framework\system\Model.php(264): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\Pure_PHP_Multi_Language_WhatsApp_bot\vendor\codeigniter4\framework\system\BaseModel.php(662): CodeIgniter\Model->doFirst()
+#6 C:\xampp\htdocs\Pure_PHP_Multi_Language_WhatsApp_bot\app\Controllers\Bot.php(224): CodeIgniter\BaseModel->first()
+#7 C:\xampp\htdocs\Pure_PHP_Multi_Language_WhatsApp_bot\app\Controllers\Bot.php(31): App\Controllers\Bot->getSession('1939948488484')
+#8 C:\xampp\htdocs\Pure_PHP_Multi_Language_WhatsApp_bot\vendor\codeigniter4\framework\system\CodeIgniter.php(942): App\Controllers\Bot->botApi()
+#9 C:\xampp\htdocs\Pure_PHP_Multi_Language_WhatsApp_bot\vendor\codeigniter4\framework\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Bot))
+#10 C:\xampp\htdocs\Pure_PHP_Multi_Language_WhatsApp_bot\vendor\codeigniter4\framework\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\Pure_PHP_Multi_Language_WhatsApp_bot\index.php(79): CodeIgniter\CodeIgniter->run()
+#12 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No connection could be made because the target machine actively refused it in C:\xampp\htdocs\Pure_PHP_Multi_Language_WhatsApp_bot\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:229
+Stack trace:
+#0 C:\xampp\htdocs\Pure_PHP_Multi_Language_WhatsApp_bot\vendor\codeigniter4\framework\system\Database\BaseConnection.php(392): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\Pure_PHP_Multi_Language_WhatsApp_bot\vendor\codeigniter4\framework\system\Database\BaseConnection.php(575): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\Pure_PHP_Multi_Language_WhatsApp_bot\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\xampp\htdocs\Pure_PHP_Multi_Language_WhatsApp_bot\vendor\codeigniter4\framework\system\Model.php(264): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp\htdocs\Pure_PHP_Multi_Language_WhatsApp_bot\vendor\codeigniter4\framework\system\BaseModel.php(662): CodeIgniter\Model->doFirst()
+#5 C:\xampp\htdocs\Pure_PHP_Multi_Language_WhatsApp_bot\app\Controllers\Bot.php(224): CodeIgniter\BaseModel->first()
+#6 C:\xampp\htdocs\Pure_PHP_Multi_Language_WhatsApp_bot\app\Controllers\Bot.php(31): App\Controllers\Bot->getSession('1939948488484')
+#7 C:\xampp\htdocs\Pure_PHP_Multi_Language_WhatsApp_bot\vendor\codeigniter4\framework\system\CodeIgniter.php(942): App\Controllers\Bot->botApi()
+#8 C:\xampp\htdocs\Pure_PHP_Multi_Language_WhatsApp_bot\vendor\codeigniter4\framework\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Bot))
+#9 C:\xampp\htdocs\Pure_PHP_Multi_Language_WhatsApp_bot\vendor\codeigniter4\framework\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\Pure_PHP_Multi_Language_WhatsApp_bot\index.php(79): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2023-11-23 09:45:22 --> Unable to connect to the database.
+Main connection [MySQLi]: No connection could be made because the target machine actively refused it
+in SYSTEMPATH\Database\BaseConnection.php on line 428.
+ 1 SYSTEMPATH\Database\BaseConnection.php(575): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `bot_follow_up`
+WHERE `user_id` = :user_id:
+ LIMIT 1', [...], false)
+ 3 SYSTEMPATH\Model.php(264): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH\BaseModel.php(662): CodeIgniter\Model->doFirst()
+ 5 APPPATH\Controllers\Bot.php(224): CodeIgniter\BaseModel->first()
+ 6 APPPATH\Controllers\Bot.php(31): App\Controllers\Bot->getSession('1939948488484')
+ 7 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\Bot->botApi()
+ 8 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Bot))
+ 9 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-11-23 09:46:25 --> Too few arguments to function App\Controllers\Bot::askLocation(), 0 passed in C:\xampp\htdocs\Pure_PHP_Multi_Language_WhatsApp_bot\app\Controllers\Bot.php on line 36 and exactly 1 expected
+in APPPATH\Controllers\Bot.php on line 347.
+ 1 APPPATH\Controllers\Bot.php(36): App\Controllers\Bot->askLocation()
+ 2 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\Bot->botApi()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Bot))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-11-23 09:46:26 --> Too few arguments to function App\Controllers\Bot::askLocation(), 0 passed in C:\xampp\htdocs\Pure_PHP_Multi_Language_WhatsApp_bot\app\Controllers\Bot.php on line 36 and exactly 1 expected
+in APPPATH\Controllers\Bot.php on line 347.
+ 1 APPPATH\Controllers\Bot.php(36): App\Controllers\Bot->askLocation()
+ 2 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\Bot->botApi()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Bot))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-11-23 09:46:41 --> Cannot access offset of type string on string
+in APPPATH\Controllers\Bot.php on line 36.
+ 1 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\Bot->botApi()
+ 2 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Bot))
+ 3 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()

@@ -33,6 +33,7 @@ $columnsToCreate = [
     ["column" => "created_at", "table" => "bot_follow_up", "type" => "DATETIME", "constraint" => '6'],
     ["column" => "updated_at", "table" => "bot_follow_up", "type" => "DATETIME", "constraint" => '6'],
     ["column" => "type", "table" => "bot_follow_up", "type" => "VARCHAR", "constraint" => '250'],
+    ["column" => "language", "table" => "bot_follow_up", "type" => "VARCHAR", "constraint" => '250'],
 ];
 
 
