@@ -369,7 +369,7 @@ class Bot extends Controller
     private function askLang()
     {
 
-        $res['replies'][]['message'] =  "*Selecciona tu idioma preferido.* (choose your preferred langauges) \n\n\n1. English \n\n2. Spanish \n\n\n\n_Amablemente responde con tu idioma preferido (kindly reply with your preferred language)_";
+        $res['replies'][]['message'] =  "*Selecciona tu idioma preferido.* (choose your preferred language) \n\n\n1. English \n\n2. Spanish \n\n\n\n_Amablemente responde con tu idioma preferido (kindly reply with your preferred language)_";
 
         return $this->response->setJSON($res);
     }
@@ -546,7 +546,6 @@ class Bot extends Controller
         $spaces_keywords = ['spaces', 'offices', 'rehearsal rooms', 'studios', 'espacios', 'oficinas', 'salas de ensayo', 'estudios'];
         $event_keywords = ['events', 'event', 'eventos'];
         $tour_keywords = ['tour', 'tours', 'tour', 'recorridos'];
-
 
         $type = false;
 
