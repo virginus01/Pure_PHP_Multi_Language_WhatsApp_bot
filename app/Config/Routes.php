@@ -12,4 +12,5 @@ $routes->get('ttx', 'Home::ttx');
 
 $routes->group('bot', ['namespace' => 'App\Controllers'], function ($routes) {
     $routes->match(['get', 'post'], '/', 'Bot::botApi', ["as" => "bot"]);
+    $routes->match(['get', 'post'], 'mail', 'Mail::mail_cron', ["as" => "mail_cron"]);
 });

@@ -1,0 +1,139 @@
+CRITICAL - 2023-12-01 08:31:52 --> Undefined array key ""
+in APPPATH\Controllers\Bot.php on line 50.
+ 1 APPPATH\Controllers\Bot.php(50): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key ""', 'C:\\xampp\\htdocs\\Pure_PHP_Multi_Language_WhatsApp_bot\\app\\Controllers\\Bot.php', 50)
+ 2 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\Bot->botApi()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Bot))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-01 09:23:13 --> Undefined array key "name"
+in APPPATH\Controllers\Mail.php on line 70.
+ 1 APPPATH\Controllers\Mail.php(70): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "name"', 'C:\\xampp\\htdocs\\Pure_PHP_Multi_Language_WhatsApp_bot\\app\\Controllers\\Mail.php', 70)
+ 2 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\Mail->mail_cron()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Mail))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-01 09:50:17 --> Trying to access array offset on value of type null
+in APPPATH\Controllers\Mail.php on line 70.
+ 1 APPPATH\Controllers\Mail.php(70): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'C:\\xampp\\htdocs\\Pure_PHP_Multi_Language_WhatsApp_bot\\app\\Controllers\\Mail.php', 70)
+ 2 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\Mail->mail_cron()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Mail))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-01 09:51:21 --> Trying to access array offset on value of type null
+in APPPATH\Controllers\Mail.php on line 70.
+ 1 APPPATH\Controllers\Mail.php(70): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'C:\\xampp\\htdocs\\Pure_PHP_Multi_Language_WhatsApp_bot\\app\\Controllers\\Mail.php', 70)
+ 2 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\Mail->mail_cron()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Mail))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-01 09:53:06 --> Call to undefined method App\Controllers\Mail::send_mail()
+in APPPATH\Controllers\Mail.php on line 75.
+ 1 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\Mail->mail_cron()
+ 2 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Mail))
+ 3 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-01 09:53:24 --> Undefined array key "location_id"
+in APPPATH\Controllers\Mail.php on line 18.
+ 1 APPPATH\Controllers\Mail.php(18): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "location_id"', 'C:\\xampp\\htdocs\\Pure_PHP_Multi_Language_WhatsApp_bot\\app\\Controllers\\Mail.php', 18)
+ 2 APPPATH\Controllers\Mail.php(75): App\Controllers\Mail->sendMail([...], '', 'Aboundoned Chat by 1939948488485')
+ 3 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\Mail->mail_cron()
+ 4 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Mail))
+ 5 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-12-01 11:06:23 --> Email: sendWithSmtp throwed ErrorException: fsockopen(): php_network_getaddresses: getaddrinfo for mail.tangodom.online failed: No such host is known.  in C:\xampp\htdocs\Pure_PHP_Multi_Language_WhatsApp_bot\vendor\codeigniter4\framework\system\Email\Email.php:1886
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'fsockopen(): ph...', 'C:\\xampp\\htdocs...', 1886)
+#1 C:\xampp\htdocs\Pure_PHP_Multi_Language_WhatsApp_bot\vendor\codeigniter4\framework\system\Email\Email.php(1886): fsockopen('ssl://mail.tang...', 465, NULL, NULL, 5)
+#2 C:\xampp\htdocs\Pure_PHP_Multi_Language_WhatsApp_bot\vendor\codeigniter4\framework\system\Email\Email.php(1799): CodeIgniter\Email\Email->SMTPConnect()
+#3 C:\xampp\htdocs\Pure_PHP_Multi_Language_WhatsApp_bot\vendor\codeigniter4\framework\system\Email\Email.php(1684): CodeIgniter\Email\Email->sendWithSmtp()
+#4 C:\xampp\htdocs\Pure_PHP_Multi_Language_WhatsApp_bot\vendor\codeigniter4\framework\system\Email\Email.php(1578): CodeIgniter\Email\Email->spoolEmail()
+#5 C:\xampp\htdocs\Pure_PHP_Multi_Language_WhatsApp_bot\app\Controllers\Mail.php(51): CodeIgniter\Email\Email->send()
+#6 C:\xampp\htdocs\Pure_PHP_Multi_Language_WhatsApp_bot\app\Controllers\Mail.php(88): App\Controllers\Mail->sendMail(Array, '<p>193994848848...', 'Aboundoned Chat...', true)
+#7 C:\xampp\htdocs\Pure_PHP_Multi_Language_WhatsApp_bot\vendor\codeigniter4\framework\system\CodeIgniter.php(942): App\Controllers\Mail->mail_cron()
+#8 C:\xampp\htdocs\Pure_PHP_Multi_Language_WhatsApp_bot\vendor\codeigniter4\framework\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Mail))
+#9 C:\xampp\htdocs\Pure_PHP_Multi_Language_WhatsApp_bot\vendor\codeigniter4\framework\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\Pure_PHP_Multi_Language_WhatsApp_bot\index.php(79): CodeIgniter\CodeIgniter->run()
+#11 {main}
+ERROR - 2023-12-01 11:06:23 --> Email: Unable to send email using SMTP. Your server might not be configured to send mail using this method.
+ERROR - 2023-12-01 11:06:23 --> 
+ERROR - 2023-12-01 11:06:23 --> mysqli_sql_exception: Unknown column 'comment' in 'field list' in C:\xampp\htdocs\Pure_PHP_Multi_Language_WhatsApp_bot\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\xampp\htdocs\Pure_PHP_Multi_Language_WhatsApp_bot\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(306): mysqli->query('UPDATE `bot_fol...', 0)
+#1 C:\xampp\htdocs\Pure_PHP_Multi_Language_WhatsApp_bot\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `bot_fol...')
+#2 C:\xampp\htdocs\Pure_PHP_Multi_Language_WhatsApp_bot\vendor\codeigniter4\framework\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `bot_fol...')
+#3 C:\xampp\htdocs\Pure_PHP_Multi_Language_WhatsApp_bot\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(2475): CodeIgniter\Database\BaseConnection->query('UPDATE `bot_fol...', Array, false)
+#4 C:\xampp\htdocs\Pure_PHP_Multi_Language_WhatsApp_bot\vendor\codeigniter4\framework\system\Model.php(385): CodeIgniter\Database\BaseBuilder->update()
+#5 C:\xampp\htdocs\Pure_PHP_Multi_Language_WhatsApp_bot\vendor\codeigniter4\framework\system\BaseModel.php(949): CodeIgniter\Model->doUpdate(NULL, Array)
+#6 C:\xampp\htdocs\Pure_PHP_Multi_Language_WhatsApp_bot\vendor\codeigniter4\framework\system\Model.php(776): CodeIgniter\BaseModel->update(NULL, Array)
+#7 C:\xampp\htdocs\Pure_PHP_Multi_Language_WhatsApp_bot\app\Controllers\Mail.php(59): CodeIgniter\Model->update()
+#8 C:\xampp\htdocs\Pure_PHP_Multi_Language_WhatsApp_bot\app\Controllers\Mail.php(88): App\Controllers\Mail->sendMail(Array, '<p>193994848848...', 'Aboundoned Chat...', true)
+#9 C:\xampp\htdocs\Pure_PHP_Multi_Language_WhatsApp_bot\vendor\codeigniter4\framework\system\CodeIgniter.php(942): App\Controllers\Mail->mail_cron()
+#10 C:\xampp\htdocs\Pure_PHP_Multi_Language_WhatsApp_bot\vendor\codeigniter4\framework\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Mail))
+#11 C:\xampp\htdocs\Pure_PHP_Multi_Language_WhatsApp_bot\vendor\codeigniter4\framework\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 C:\xampp\htdocs\Pure_PHP_Multi_Language_WhatsApp_bot\index.php(79): CodeIgniter\CodeIgniter->run()
+#13 {main}
+CRITICAL - 2023-12-01 11:06:23 --> Unknown column 'comment' in 'field list'
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2475): CodeIgniter\Database\BaseConnection->query('UPDATE `bot_follow_up` SET `comment` = :comment:, `updated_at` = :updated_at:
+WHERE `user_id` = :user_id:', [...], false)
+ 2 SYSTEMPATH\Model.php(385): CodeIgniter\Database\BaseBuilder->update()
+ 3 SYSTEMPATH\BaseModel.php(949): CodeIgniter\Model->doUpdate(null, [...])
+ 4 SYSTEMPATH\Model.php(776): CodeIgniter\BaseModel->update(null, [...])
+ 5 APPPATH\Controllers\Mail.php(59): CodeIgniter\Model->update()
+ 6 APPPATH\Controllers\Mail.php(88): App\Controllers\Mail->sendMail([...], '<p>1939948488485 has aboundoned the conversation. <a href=\'https://api.whatsapp.com/send/?phone=1939948488485\'>Click here to follow up</a></p>', 'Aboundoned Chat by 1939948488485', true)
+ 7 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\Mail->mail_cron()
+ 8 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Mail))
+ 9 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-12-01 11:06:51 --> Email: sendWithSmtp throwed ErrorException: fsockopen(): php_network_getaddresses: getaddrinfo for mail.tangodom.online failed: No such host is known.  in C:\xampp\htdocs\Pure_PHP_Multi_Language_WhatsApp_bot\vendor\codeigniter4\framework\system\Email\Email.php:1886
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'fsockopen(): ph...', 'C:\\xampp\\htdocs...', 1886)
+#1 C:\xampp\htdocs\Pure_PHP_Multi_Language_WhatsApp_bot\vendor\codeigniter4\framework\system\Email\Email.php(1886): fsockopen('ssl://mail.tang...', 465, NULL, NULL, 5)
+#2 C:\xampp\htdocs\Pure_PHP_Multi_Language_WhatsApp_bot\vendor\codeigniter4\framework\system\Email\Email.php(1799): CodeIgniter\Email\Email->SMTPConnect()
+#3 C:\xampp\htdocs\Pure_PHP_Multi_Language_WhatsApp_bot\vendor\codeigniter4\framework\system\Email\Email.php(1684): CodeIgniter\Email\Email->sendWithSmtp()
+#4 C:\xampp\htdocs\Pure_PHP_Multi_Language_WhatsApp_bot\vendor\codeigniter4\framework\system\Email\Email.php(1578): CodeIgniter\Email\Email->spoolEmail()
+#5 C:\xampp\htdocs\Pure_PHP_Multi_Language_WhatsApp_bot\app\Controllers\Mail.php(51): CodeIgniter\Email\Email->send()
+#6 C:\xampp\htdocs\Pure_PHP_Multi_Language_WhatsApp_bot\app\Controllers\Mail.php(88): App\Controllers\Mail->sendMail(Array, '<p>193994848848...', 'Aboundoned Chat...', true)
+#7 C:\xampp\htdocs\Pure_PHP_Multi_Language_WhatsApp_bot\vendor\codeigniter4\framework\system\CodeIgniter.php(942): App\Controllers\Mail->mail_cron()
+#8 C:\xampp\htdocs\Pure_PHP_Multi_Language_WhatsApp_bot\vendor\codeigniter4\framework\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Mail))
+#9 C:\xampp\htdocs\Pure_PHP_Multi_Language_WhatsApp_bot\vendor\codeigniter4\framework\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\Pure_PHP_Multi_Language_WhatsApp_bot\index.php(79): CodeIgniter\CodeIgniter->run()
+#11 {main}
+ERROR - 2023-12-01 11:06:51 --> Email: Unable to send email using SMTP. Your server might not be configured to send mail using this method.
+ERROR - 2023-12-01 11:06:51 --> 
+WARNING - 2023-12-01 11:39:39 --> [DEPRECATED] date(): Passing null to parameter #1 ($format) of type string is deprecated in APPPATH\Controllers\Mail.php on line 19.
+ 1 APPPATH\Controllers\Mail.php(19): date(null, 'Y-m-d')
+ 2 APPPATH\Controllers\Mail.php(102): App\Controllers\Mail->sendMail([...], '<p>1939948488485 has aboundoned the conversation. <a href=\'https://api.whatsapp.com/send/?phone=1939948488485\'>Click here to follow up</a></p>', 'Aboundoned Chat by 1939948488485', true)
+ 3 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\Mail->mail_cron()
+ 4 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Mail))
+ 5 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-01 11:39:39 --> date(): Argument #2 ($timestamp) must be of type ?int, string given
+in APPPATH\Controllers\Mail.php on line 19.
+ 1 APPPATH\Controllers\Mail.php(19): date('', 'Y-m-d')
+ 2 APPPATH\Controllers\Mail.php(102): App\Controllers\Mail->sendMail([...], '<p>1939948488485 has aboundoned the conversation. <a href=\'https://api.whatsapp.com/send/?phone=1939948488485\'>Click here to follow up</a></p>', 'Aboundoned Chat by 1939948488485', true)
+ 3 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\Mail->mail_cron()
+ 4 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Mail))
+ 5 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+WARNING - 2023-12-01 11:40:49 --> [DEPRECATED] strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in APPPATH\Controllers\Mail.php on line 19.
+ 1 APPPATH\Controllers\Mail.php(19): strtotime(null)
+ 2 APPPATH\Controllers\Mail.php(102): App\Controllers\Mail->sendMail([...], '<p>1939948488485 has aboundoned the conversation. <a href=\'https://api.whatsapp.com/send/?phone=1939948488485\'>Click here to follow up</a></p>', 'Aboundoned Chat by 1939948488485', true)
+ 3 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\Mail->mail_cron()
+ 4 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Mail))
+ 5 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+WARNING - 2023-12-01 11:40:49 --> [DEPRECATED] strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in APPPATH\Controllers\Mail.php on line 20.
+ 1 APPPATH\Controllers\Mail.php(20): strtotime(null)
+ 2 APPPATH\Controllers\Mail.php(102): App\Controllers\Mail->sendMail([...], '<p>1939948488485 has aboundoned the conversation. <a href=\'https://api.whatsapp.com/send/?phone=1939948488485\'>Click here to follow up</a></p>', 'Aboundoned Chat by 1939948488485', true)
+ 3 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\Mail->mail_cron()
+ 4 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Mail))
+ 5 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-01 11:49:14 --> Call to undefined method App\Models\BotModel::whereNull
+in SYSTEMPATH\Model.php on line 873.
+ 1 APPPATH\Controllers\Mail.php(101): CodeIgniter\Model->__call('whereNull', [...])
+ 2 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\Mail->mail_cron()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Mail))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()

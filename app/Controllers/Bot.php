@@ -41,6 +41,10 @@ class Bot extends Controller
             $res["en"]["replies"][]["message"] = "You have been added to bot ignore list, you won't receive message from bot again.\n\n\nTo start receiving bot help again, reply *clear*";
             $res["es"]["replies"][]["message"] = "Has sido añadido a la lista de ignorados del bot, no recibirás más mensajes del bot.\n\n\nPara volver a recibir ayuda del bot, responde *limpiar*";
 
+            $mail = new Mail();
+            $message =  "<p>{$sender} Has stopped the conversation. <a href='https://api.whatsapp.com/send/?phone={$sender}'>Click here to follow up</a></p>";
+
+            $mail->sendMail($session, $message, "Conversation Stopped by {$sender}", false);
             return $this->response->setJSON($res[$session["language"]]);
         }
 
@@ -57,6 +61,7 @@ class Bot extends Controller
                     //update the session and continue
                     $session = $this->getSession($sender);
                     $nextAction = $this->checkNextAction($sender);
+                    return $this->askLocation($session["language"]);
                 } else {
                     return $this->askLang();
                 }
@@ -65,12 +70,16 @@ class Bot extends Controller
             }
         }
 
+
         if ($nextAction == "location") {
+
             if ($this->locSearch($message) != false) {
+
                 if ($this->update_location($sender, $this->locSearch($message)) == true) {
                     //update the session and continue
                     $session = $this->getSession($sender);
                     $nextAction = $this->checkNextAction($sender);
+                    return $this->askType($session["language"]);
                 } else {
                     return $this->askLocation($session["language"]);
                 }
@@ -194,11 +203,11 @@ class Bot extends Controller
             return "end_date";
         }
 
-        if ($session["adult"] == null) {
+        if ($session["adult"] == null && $session["type"] != 'tour' &&  $session["type"] != 'event') {
             return "adult";
         }
 
-        if ($session["child"] == null) {
+        if ($session["child"] == null && $session["type"] != 'tour' &&  $session["type"] != 'event') {
             return "child";
         }
 
@@ -356,7 +365,7 @@ class Bot extends Controller
 
         $n = 1;
         foreach ($locations as $location) {
-            $loc[] = $location["id"] . ". " . $location["name"];
+            $loc[] = $n . ". " . $location["name"];
             $n++;
         }
         $res["en"]['replies'][]['message'] =  "*Below are the list of our available locations*\n\n\n" . implode("\n\n", $loc) . "\n\n\n_kindly reply with your preferred location_";
@@ -369,7 +378,7 @@ class Bot extends Controller
     private function askLang()
     {
 
-        $res['replies'][]['message'] =  "*Selecciona tu idioma preferido.* (choose your preferred language) \n\n\n1. English \n\n2. Spanish \n\n\n\n_Amablemente responde con tu idioma preferido (kindly reply with your preferred language)_";
+        $res['replies'][]['message'] =  "*Selecciona tu idioma preferido.* (choose your preferred language) \n\n\n1. English \n\n2. Español \n\n\n\n_Amablemente responde con tu idioma preferido (kindly reply with your preferred language)_";
 
         return $this->response->setJSON($res);
     }
@@ -456,7 +465,7 @@ class Bot extends Controller
     {
 
         $res["en"]['replies'][]["message"] = "*What are you looking for?*\n\n\n1 - A place to stay (Hotel, Homestays, Apartments)\n\n2 - Spaces (Offices, Rehearsal Rooms, Studios)\n\n3- Events\n\n4- Tours";
-        $res["es"]['replies'][]["message"] = "*¿Qué estás buscando?*\n\n\n1 - Un lugar para alojarse (Hotel, Alojamientos, Apartamentos)\n\n2 - Espacios (Oficinas, Salas de ensayo, Estudios)\n\n3- Eventos\n\n4- Tours";
+        $res["es"]['replies'][]["message"] = "*¿Qué estás buscando?*\n\n\n1 - Alojamiento (hotel o departamento)\n\n2 - Espacios (Oficinas, Salas de ensayo, Estudios)\n\n3- Eventos\n\n4- Tours";
 
         return $this->response->setJSON($res[$lang]);
     }
@@ -499,8 +508,8 @@ class Bot extends Controller
 
         $string = strtolower($string);
 
-        $en_keywords = ['english', 'en', 'eng'];
-        $es_keywords = ['spanish', 'es', 'spa'];
+        $en_keywords = ['english', 'en', 'eng', '1'];
+        $es_keywords = ['spanish', 'es', 'spa', 'español', 'espanol', '2'];
 
 
         $lang = false;
@@ -527,12 +536,30 @@ class Bot extends Controller
 
     function locSearch($message)
     {
-        $loc = new LocationModel();
-        $search =  $loc->like("name", $message)->orWhere("id", $message)->first();
-        if (!empty($search)) {
-            return $search["id"];
+
+        $locM = new LocationModel();
+        $locations = $locM->where("status", 'publish')->findAll();
+
+        if (is_numeric($message)) {
+            $n = 1;
+            $lo = [];
+            foreach ($locations as $location) {
+                $lo[$n] = $location["id"];
+                $n++;
+            }
+            if (isset($lo[$message])) {
+                return $lo[$message];
+            } else {
+                return false;
+            }
         } else {
-            return false;
+            $loc = new LocationModel();
+            $search =  $loc->like("name", $message)->orWhere("id", $message)->first();
+            if (!empty($search)) {
+                return $search["id"];
+            } else {
+                return false;
+            }
         }
     }
 
@@ -542,10 +569,10 @@ class Bot extends Controller
 
         $string = strtolower($string);
 
-        $hotel_keywords = ['a place to stay', 'hotel', 'hotels', 'homestays', 'apartments', 'un lugar para alojarse', 'alojamiento', 'hoteles', 'hostales', 'apartamentos'];
-        $spaces_keywords = ['spaces', 'offices', 'rehearsal rooms', 'studios', 'espacios', 'oficinas', 'salas de ensayo', 'estudios'];
-        $event_keywords = ['events', 'event', 'eventos'];
-        $tour_keywords = ['tour', 'tours', 'tour', 'recorridos'];
+        $hotel_keywords = ['1', 'a place to stay', 'hotel', 'hotels', 'homestays', 'apartments', 'un lugar para alojarse', 'alojamiento', 'hoteles', 'hostales', 'apartamentos', 'Alojamiento', 'departamento'];
+        $spaces_keywords = ['2', 'spaces', 'offices', 'rehearsal rooms', 'studios', 'espacios', 'oficinas', 'salas de ensayo', 'estudios'];
+        $event_keywords = ['3', 'events', 'event', 'eventos'];
+        $tour_keywords = ['4', 'tour', 'tours', 'tour', 'recorridos'];
 
         $type = false;
 
@@ -571,8 +598,6 @@ class Bot extends Controller
         }
         return false;
     }
-
-
 
     function isValidDate($dateString)
     {

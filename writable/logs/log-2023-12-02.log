@@ -1,0 +1,32 @@
+CRITICAL - 2023-12-02 08:36:20 --> Undefined array key 1
+in APPPATH\Controllers\Bot.php on line 549.
+ 1 APPPATH\Controllers\Bot.php(549): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 1', 'C:\\xampp\\htdocs\\Pure_PHP_Multi_Language_WhatsApp_bot\\app\\Controllers\\Bot.php', 549)
+ 2 APPPATH\Controllers\Bot.php(76): App\Controllers\Bot->locSearch('2')
+ 3 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\Bot->botApi()
+ 4 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Bot))
+ 5 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-02 08:36:20 --> Undefined array key 1
+in APPPATH\Controllers\Bot.php on line 549.
+ 1 APPPATH\Controllers\Bot.php(549): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 1', 'C:\\xampp\\htdocs\\Pure_PHP_Multi_Language_WhatsApp_bot\\app\\Controllers\\Bot.php', 549)
+ 2 APPPATH\Controllers\Bot.php(76): App\Controllers\Bot->locSearch('2')
+ 3 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\Bot->botApi()
+ 4 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Bot))
+ 5 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-02 08:36:34 --> Undefined array key 1
+in APPPATH\Controllers\Bot.php on line 549.
+ 1 APPPATH\Controllers\Bot.php(549): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 1', 'C:\\xampp\\htdocs\\Pure_PHP_Multi_Language_WhatsApp_bot\\app\\Controllers\\Bot.php', 549)
+ 2 APPPATH\Controllers\Bot.php(76): App\Controllers\Bot->locSearch('2')
+ 3 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\Bot->botApi()
+ 4 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Bot))
+ 5 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-02 08:36:54 --> Undefined array key 4
+in APPPATH\Controllers\Bot.php on line 553.
+ 1 APPPATH\Controllers\Bot.php(553): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 4', 'C:\\xampp\\htdocs\\Pure_PHP_Multi_Language_WhatsApp_bot\\app\\Controllers\\Bot.php', 553)
+ 2 APPPATH\Controllers\Bot.php(76): App\Controllers\Bot->locSearch('2')
+ 3 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\Bot->botApi()
+ 4 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Bot))
+ 5 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
